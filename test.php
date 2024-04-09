@@ -1,7 +1,7 @@
-// <?php   										// Opening PHP tag
+<?php   										// Opening PHP tag
 	
-// 	// Include the database connection script
-// 	require 'includes/database-connection.php';
+ 	// Include the database connection script
+ 	require 'includes/database-connection.php';
 
 // 	/*
 // 	 * Retrieve toy information from the database based on the toy ID.
@@ -30,7 +30,7 @@
 // 	$toy1 = get_toy($pdo, '1');
 	
 
-// // Closing PHP tag  ?> 
+// Closing PHP tag  ?> 
 
 <!DOCTYPE>
 <html>
