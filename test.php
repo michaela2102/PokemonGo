@@ -14,7 +14,7 @@
 
 		// SQL query to retrieve toy information based on the toy ID
 		$sql = "SELECT * 
-			FROM toy
+			FROM pokemon
 			WHERE pokemonID= :id;";	// :id is a placeholder for value provided later 
 		                               // It's a parameterized query that helps prevent SQL injection attacks and ensures safer interaction with the database.
 
