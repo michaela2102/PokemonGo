@@ -1,53 +1,104 @@
 <?php   										// Opening PHP tag
 	
  	// Include the database connection script
- 	//require 'includes/database-connection.php'; // comment out for now
+ 	require 'includes/database-connection.php'; // comment out for now
 
-// 	/*
-// 	 * Retrieve toy information from the database based on the toy ID.
-// 	 * 
-// 	 * @param PDO $pdo       An instance of the PDO class.
-// 	 * @param string $id     The ID of the toy to retrieve.
-// 	 * @return array|null    An associative array containing the toy information, or null if no toy is found.
-// 	 */
-// 	function get_toy(PDO $pdo, string $id) {
+ 	/*
+	 * Retrieve rankings information from the database.
+	 * 
+	 * @param PDO $pdo       An instance of the PDO class.
+	 * @return array|null    An associative array containing the ranks information
+	 */
 
-// 		// SQL query to retrieve toy information based on the toy ID
-// 		$sql = "SELECT * 
-// 			FROM pokemon
-// 			WHERE PokemonID= :id;";	// :id is a placeholder for value provided later 
-// 		                               // It's a parameterized query that helps prevent SQL injection attacks and ensures safer interaction with the database.
+    function get_rankings(PDO $pdo) {
+        // SQL query to retrieve toy information based on the toy ID
+        $sql = "SET @rank = 0; SELECT @rank := @rank + 1 AS Rank, Username, XP FROM player ORDER BY XP DESC;";
 
+        // Execute the SQL query using the pdo function and fetch the result
+        $rankings = pdo($pdo, $sql)->fetchAll();
 
-// 		// Execute the SQL query using the pdo function and fetch the result
-// 		$toy = pdo($pdo, $sql, ['PokemonID' => $id])->fetch();		// Associative array where 'id' is the key and $id is the value. Used to bind the value of $id to the placeholder :id in  SQL query.
+        // Return the ranks information (associative array)
+        return $rankings;
+    }
 
-// 		// Return the toy information (associative array)
-// 		return $toy;
-// 	}
-
-// 	// Retrieve info about toy with ID '0001' from the db using provided PDO connection
-// 	$toy1 = get_toy($pdo, '1');
+    // Retrieve info
+    $rankings = get_rankings($pdo);
 	
-
 // Closing PHP tag  ?> 
 
-<!DOCTYPE>
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokémonGo Player Leaderboard</title>
 
-	<head>
-		<meta charset="UTF-8">
-  		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  		<title>PokemonGo Leaderboard</title>
-  		<link rel="stylesheet" href="css/style.css">
-  		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
-	</head>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['table']});
+      google.charts.setOnLoadCallback(drawTable);
 
-	<body>
-    <p> Hello, this is a test </p>
-    
+      function drawTable() {
+        var data = new google.visualization.DataTable();
+		data.addColumn('number', 'Rank');
+		data.addColumn('string', 'Username');
+		data.addColumn('number', 'XP');
+        data.addRows($rankings);
 
-	</body>
+        var table = new google.visualization.Table(document.getElementById('table_div'));
+
+        table.draw(data, {showRowNumber: false, width: '100%', height: '100%'});
+      }
+    </script>
+
+    <style>
+        /* Basic CSS for styling */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        img {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>PokémonGo Player Leaderboard</h1>
+
+	<desc>Here is a leaderboard of the top PokémonGo players.</desc>
+    <br> <br>
+
+	<img src="images/gold_medal.png" alt="Gold Medal" width="50" height="50">
+    <rank><?= $rankings[0]['Username'] ?> with <?= $rankings[0]['XP'] ?> XP.</rank>
+    <br>
+    <br>
+
+    <img src="images/silver_medal.png" alt="Silver Medal" width="50" height="50">
+    <rank><?= $rankings[1]['Username'] ?> with <?= $rankings[1]['XP'] ?> XP.</rank>
+    <br>
+    <br>
+
+    <img src="images/bronze_medal.png" alt="Bronze Medal" width="50" height="50">
+    <rank><?= $rankings[2]['Username'] ?> with <?= $rankings[2]['XP'] ?> XP.</rank>
+    <br>
+    <br>
+
+    <ul>
+        <?php
+        
+        ?>
+    </ul>
+
+	<div id="table_div"></div>
+
+</body>
 </html>
