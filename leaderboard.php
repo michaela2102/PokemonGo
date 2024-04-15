@@ -12,7 +12,11 @@
 
     function get_rankings(PDO $pdo) {
         // SQL query to retrieve toy information based on the toy ID
-        $sql = "SET @rank = 0; SELECT @rank := @rank + 1 AS Rank, Username, XP FROM player ORDER BY XP DESC;";
+        $sql = "SET @rank = 0;";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+
+        $sql = "SELECT @rank := @rank + 1 AS Rank, Username, XP FROM player ORDER BY XP DESC;";
 
         // Execute the SQL query using the pdo function and fetch the result
         $rankings = pdo($pdo, $sql)->fetchAll();
@@ -38,16 +42,18 @@
       google.charts.load('current', {'packages':['table']});
       google.charts.setOnLoadCallback(drawTable);
 
+      var rankings = <?= json_encode($rankings) ?>;
+
       function drawTable() {
         var data = new google.visualization.DataTable();
 		data.addColumn('number', 'Rank');
 		data.addColumn('string', 'Username');
 		data.addColumn('number', 'XP');
-        data.addRows($rankings);
+        data.addRows(rankings);
 
         var table = new google.visualization.Table(document.getElementById('table_div'));
 
-        table.draw(data, {showRowNumber: false, width: '100%', height: '100%'});
+        table.draw(data, {showRowNumber: false, width: '70%', height: '100%'});
       }
     </script>
 
