@@ -37,32 +37,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PokémonGo Player Leaderboard</title>
 
-	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-      google.charts.load('current', {'packages':['table']});
-      google.charts.setOnLoadCallback(drawTable);
-
-      var rankings = <?= json_encode($rankings) ?>;
-
-      function drawTable() {
-        var data = new google.visualization.DataTable();
-		data.addColumn('number', 'Rank');
-		data.addColumn('string', 'Username');
-		data.addColumn('number', 'XP');
-        data.addRows(rankings);
-
-        var table = new google.visualization.Table(document.getElementById('table_div'));
-
-        table.draw(data, {showRowNumber: false, width: '70%', height: '100%'});
-      }
-    </script>
-
     <style>
         /* Basic CSS for styling */
         body {
             font-family: Arial, sans-serif;
         }
         h1 {
+            text-align: center;
+        }
+        h2 {
+            text-align: center;
+        }
+        div {
             text-align: center;
         }
         ul {
@@ -72,39 +58,48 @@
         li {
             margin-bottom: 10px;
         }
-        img {
-            margin-right: 10px;
+        img.center {
+            display: block;
+            margin: 0 auto; /* Centers the image horizontally */
         }
     </style>
 </head>
 <body>
     <h1>PokémonGo Player Leaderboard</h1>
 
-	<desc>Here is a leaderboard of the top PokémonGo players.</desc>
+	<h2>Top 3 PokémonGo Players</h2>
+    <br>
+
+	<img src="images/gold_medal.png" alt="Gold Medal" width="50" height="50" class="center">
+    <br>
+    <div><?= $rankings[0]['Username'] ?> with <?= $rankings[0]['XP'] ?> XP</div>
+    <br>
+    <br>
+
+    <img src="images/silver_medal.png" alt="Silver Medal" width="50" height="50" class="center">
+    <br>
+    <div><?= $rankings[1]['Username'] ?> with <?= $rankings[1]['XP'] ?> XP</div>
+    <br>
+    <br>
+
+    <img src="images/bronze_medal.png" alt="Bronze Medal" width="50" height="50" class="center">
+    <br>
+    <div><?= $rankings[2]['Username'] ?> with <?= $rankings[2]['XP'] ?> XP</div>
+    <br>
+    <br>
+
+    <h2>Complete Leaderboard</h2>
     <br> <br>
 
-	<img src="images/gold_medal.png" alt="Gold Medal" width="50" height="50">
-    <rank><?= $rankings[0]['Username'] ?> with <?= $rankings[0]['XP'] ?> XP.</rank>
+    <div>Rank &emsp; Username &emsp; XP</div>
     <br>
-    <br>
-
-    <img src="images/silver_medal.png" alt="Silver Medal" width="50" height="50">
-    <rank><?= $rankings[1]['Username'] ?> with <?= $rankings[1]['XP'] ?> XP.</rank>
-    <br>
-    <br>
-
-    <img src="images/bronze_medal.png" alt="Bronze Medal" width="50" height="50">
-    <rank><?= $rankings[2]['Username'] ?> with <?= $rankings[2]['XP'] ?> XP.</rank>
-    <br>
-    <br>
-
-    <ul>
-        <?php
-        
-        ?>
-    </ul>
-
-	<div id="table_div"></div>
+    <?php
+    for ($row = 0; $row < count($rankings); $row++) {
+        echo '<div>' . $rankings[$row]['Rank'] . ' &emsp; ' . $rankings[$row]['Username'] . ' &emsp; ' . $rankings[$row]['XP'] . ' XP</div> <br>';
+    }
+    ?>
+    
+    
 
 </body>
 </html>
