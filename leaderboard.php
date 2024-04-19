@@ -70,19 +70,19 @@
 	<h2>Top 3 PokémonGo Players</h2>
     <br>
 
-	<img src="images/gold_medal.png" alt="Gold Medal" width="50" height="50" class="center">
+	<img src="images/gold_medal.PNG" alt="Gold Medal" width="50" height="50" class="center">
     <br>
     <div><?= $rankings[0]['Username'] ?> with <?= $rankings[0]['XP'] ?> XP</div>
     <br>
     <br>
 
-    <img src="images/silver_medal.png" alt="Silver Medal" width="50" height="50" class="center">
+    <img src="images/silver_medal.PNG" alt="Silver Medal" width="50" height="50" class="center">
     <br>
     <div><?= $rankings[1]['Username'] ?> with <?= $rankings[1]['XP'] ?> XP</div>
     <br>
     <br>
 
-    <img src="images/bronze_medal.png" alt="Bronze Medal" width="50" height="50" class="center">
+    <img src="images/bronze_medal.PNG" alt="Bronze Medal" width="50" height="50" class="center">
     <br>
     <div><?= $rankings[2]['Username'] ?> with <?= $rankings[2]['XP'] ?> XP</div>
     <br>
