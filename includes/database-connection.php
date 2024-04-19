@@ -6,8 +6,8 @@ $db       = 'mwentwor_PokemonGo';     // Name of the database
 $port     = '3306';                           // Port is usually 3306 in Hostgator
 $charset  = 'utf8mb4';                       // UTF-8 encoding using 4 bytes of data per char
 
-$username = 'mwentworth14';     // Enter YOUR cPanel username and user here
-$password = 'csc_100751980';           // Enter YOUR user password here
+$username = 'mwentwor_user-1';     // Enter YOUR cPanel username and user here
+$password = 'Meaganwashere';           // Enter YOUR user password here
 
 
 
