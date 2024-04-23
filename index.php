@@ -1,7 +1,6 @@
 <?php
 	session_start();
 	require 'includes/database-connection.php';
-	require_login($logged_in);
 
     $username = $_SESSION['username'];
     function get_player_id(PDO $pdo, string $username) {
@@ -91,7 +90,7 @@
     <h1>Pokémon!</h1>
 	<div class="header-right">
 		<ul>
-			<li><?= $logged_in ? '<a href="logout.php">Log Out</a>' : '<a href="login.php">Log In</a>'; ?></li>
+			<li>'<a href="logout.php">Log Out</a>' </li>
 		</ul>
 	</div>
 <!-- -->
