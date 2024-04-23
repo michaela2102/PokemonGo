@@ -1,7 +1,6 @@
 <?php
 	session_start();
-    var_dump($_SESSION);
-    $_SESSION['username'] = $username;
+    $username = $_SESSION['username'];
 
     function get_player_id(PDO $pdo, string $username) {
 
