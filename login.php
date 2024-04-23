@@ -1,87 +1,106 @@
-<?php
-	session_start();										 // Start/renew session
-  require 'includes/database-connection.php';
-
-	// $logged_in = $_SESSION['logged_in'] ?? false; 		    // Is user logged in?
-
-	function login($username)          					  // Remember user passed login
-	{
-    	// session_regenerate_id(true); 					 // Update session id
-	    $_SESSION['logged_in'] = true; 					// Set logged_in key to true
-	    $_SESSION['username'] = $username;		       // Set username key to one from form 
-	}
-
-	function authenticate($pdo, $username, $password) {
-	    $sql = "SELECT username, password
-	            FROM login_info
-	            WHERE username = :username AND password = :password";
-
-	    $user = pdo($pdo, $sql, ['username' => $username, 'password' => $password])->fetch();
-
-	    return $user;
-  	}
-
-if ($logged_in) {   
-  header('Location: index.php'); 
-  print "<script>window.location = 'index.php'</script>";
-  exit;
-}    
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $username = $_POST['username'];
-  $password = $_POST['password'];
-
-  $user = authenticate($pdo, $username, $password);
-
-  if ($user) {
-    login($username);                               
-    header('Location: index.php');
-    print "<script>window.location = 'index.php'</script>";
-    exit;   
-  } else {
-    $login_err = "Invalid username or password";
-  }
-}
-?> 
-
 <!DOCTYPE html>
 <html>
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Log-In</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon Log-In</title>
+    <style>
+        /* Basic CSS for styling */
+        body {
+            font-family: "Arial", sans-serif;
+            background-color: #f5f5f5; /* Light gray background color */
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #ee5350; /* Pokémon red */
+            padding: 10px;
+            color: white;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        h1 {
+            text-align: center;
+            color: #35477d; /* Pokémon blue */
+        }
+
+        .login-container {
+            width: 300px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #ee5350; /* Pokémon red */
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #d6413d; /* Darker red on hover */
+        }
+
+        .error {
+            color: red;
+            text-align: center;
+        }
+    </style>
 </head>
-
 <body>
-  <header>
-    <div>
-      <div>
-      </div>
+    <header>
+        <h1>Pokémon Log In</h1>
+        <nav>
+            <ul>
+                <li><a href="home.php">Home</a></li>
+            </ul>
+        </nav>
+    </header>
 
-      <nav>
-        <ul>
-          <li><a href="home.php">Home</a></li>
-        </ul>
-      </nav>
+    <div class="login-container">
+        <?php if(isset($login_err)) { ?>
+            <p class="error"><?php echo $login_err; ?></p>
+        <?php } ?>
+        
+        <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username"><br>
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password"><br>
+            <input type="submit" value="Log In">
+        </form>
     </div>
-  </header>
-
-  <div>
-    <h1>Log In</h1>
-    <hr />
-    <br />
-    <?php if(isset($login_err)) { ?>
-      <p style="color: red;"><?php echo $login_err; ?></p>
-    <?php } ?>
-    
-    <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-      Username: <input type="text" name="username"><br>
-      Password: <input type="password" name="password"><br>
-      <input type="submit" value="Log In">
-    </form>
-
-  </div>
-
 </body>
 </html>
