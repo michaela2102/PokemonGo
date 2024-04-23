@@ -11,13 +11,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     var_dump($email);
     // Hash the password for security
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
+    var_dump($hashed_password);
     // Prepare SQL statement to insert user data into the database
-    $sql = "INSERT INTO login_info (username, password, email) VALUES ($username, $password, $email);";
-    $stmt = $pdo->prepare($sql);
+    $sql = "INSERT INTO login_info (username, password, email) VALUES (:username, :password, :email);";
 
-    // Bind parameters and execute the statement
-    $stmt->execute(['username' => $username, 'password' => $hashed_password, 'email' => $email]);
+    $params = ['username' => $username, 'password' => $hashed_password, 'email' => $email];
+    executeSQL($pdo, $sql, $params);
 
     // Redirect to a success page or login page
     header('Location: login.php');
