@@ -1,6 +1,9 @@
 <?php
-	session_start();
-    require 'includes/database-connection.php';
+	include 'includes/session.php';
+	require 'includes/starRating.php';
+
+	require_login($logged_in);
+    
     $username = $_SESSION['username'];
 
     function get_player_id(PDO $pdo, string $username) {
@@ -31,7 +34,7 @@
 		// Return the toy information (associative array)
 		return $pokemon_collection;
 	}
-    
+
     console.log($username);
     $PlayerID = get_player_id($pdo, $username);
     $pokemon_collection = get_pokemon_collection($pdo, $PlayerID);
