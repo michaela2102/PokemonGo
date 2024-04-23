@@ -10,7 +10,7 @@
 				WHERE Username = :username;";
 		
 		// Execute the SQL query using the pdo function and fetch the result
-		$pokemon_collection = pdo($pdo, $sql, ['PlayerID' => $PlayerID])->fetchAll();
+		$pokemon_collection = pdo($pdo, $sql, ['Username' => $username])->fetchAll();
 
 		// Return the toy information (associative array)
 		return $pokemon_collection;
