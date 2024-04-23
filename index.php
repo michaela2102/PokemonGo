@@ -1,5 +1,6 @@
 <?php
 	include 'includes/session.php';
+	require 'includes/database-connection.php';
 
 	require_login($logged_in);
 
