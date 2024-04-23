@@ -6,17 +6,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
     $email = $_POST['email'];
-    var_dump($username);
-    var_dump($password);
-    var_dump($email);
     // Hash the password for security
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-    var_dump($hashed_password);
+    // $hashed_password = password_hash($password, PASSWORD_DEFAULT);
     // Prepare SQL statement to insert user data into the database
     $sql = "INSERT INTO login_info (username, password, email) VALUES (:username, :password, :email);";
-
-    $params = ['username' => $username, 'password' => $hashed_password, 'email' => $email];
+    var_dump($password);
+    $params = ['username' => $username, 'password' => $password, 'email' => $email];
+    var_dump($username);
     executeSQL($pdo, $sql, $params);
+    var_dump($email);
 
     // Redirect to a success page or login page
     header('Location: login.php');
