@@ -7,7 +7,7 @@
 	require_login($logged_in);
 
     $username = $_SESSION['username'];
-
+	var_dump($username);
     function get_player_id(PDO $pdo, string $username) {
 
 		// SQL query to retrieve Pokémon information based on the Pokémon ID
@@ -37,9 +37,10 @@
 		return $pokemon_collection;
 	}
 
-    console.log($username);
     $PlayerID = get_player_id($pdo, $username);
+	var_dump($PlayerID);
     $pokemon_collection = get_pokemon_collection($pdo, $PlayerID);
+	var_dump($pokemon_collection);
 ?> 
 
 <!DOCTYPE html>
