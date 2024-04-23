@@ -1,7 +1,4 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
 session_start();
 require 'includes/database-connection.php'; // Include your database connection file
 
@@ -10,15 +7,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
     $email = $_POST['email'];
     // Hash the password for security
-    // $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
     // Prepare SQL statement to insert user data into the database
     $sql = "INSERT INTO login_info (username, password, email) VALUES (:username, :password, :email)";
     $params = ['username' => $username, 'password' => $password, 'email' => $email];
-    var_dump($password);
     $stmt = $pdo->prepare($sql);
-    var_dump($username);
     $stmt->execute($params);
-    var_dump($email);
 
     // Redirect to a success page or login page
     header('Location: login.php');
