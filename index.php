@@ -89,11 +89,17 @@
 <body>
     <h1>Pokémon!</h1>
 
-	<div class="header-right">
-		<ul>
-			<li><?= $logged_in ? '<a href="logout.php">Log Out</a>' : '<a href="login.php">Log In</a>'; ?></li>
-		</ul>
-	</div>
+    <!-- Logout Button -->
+    <div style="text-align: right; margin-right: 20px;">
+        <?php if ($logged_in) : ?>
+            <form action="logout.php" method="post">
+                <input type="submit" value="Log Out">
+            </form>
+        <?php else : ?>
+            <a href="login.php">Log In</a>
+        <?php endif; ?>
+    </div>
+    <!-- End of Logout Button -->
 <!-- -->
 	
 	<!-- Iterate over each Pokémon in the collection -->
