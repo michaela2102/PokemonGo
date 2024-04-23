@@ -9,11 +9,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Hash the password for security
     // $hashed_password = password_hash($password, PASSWORD_DEFAULT);
     // Prepare SQL statement to insert user data into the database
-    $sql = "INSERT INTO login_info (username, password, email) VALUES (:username, :password, :email);";
-    var_dump($password);
+    $sql = "INSERT INTO login_info (username, password, email) VALUES (:username, :password, :email)";
     $params = ['username' => $username, 'password' => $password, 'email' => $email];
+    var_dump($password);
+    $stmt = $pdo->prepare($sql);
     var_dump($username);
-    $user = pdo($pdo, $sql, $params)->fetch();
+    $stmt->execute($params);
     var_dump($email);
 
     // Redirect to a success page or login page
