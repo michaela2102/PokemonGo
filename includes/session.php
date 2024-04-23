@@ -33,15 +33,19 @@
 	    }
 	}
 
-	function logout()     
-	{
-	    $_SESSION = [];
-
-	    $params = session_get_cookie_params();
-	    setcookie('PHPSESSID', '', time() - 3600, $params['path'], $params['domain'],
-	        $params['secure'], $params['httponly']);
-
-	    session_destroy();
+	function logout() {
+		// Clear session data
+		$_SESSION = [];
+	
+		// Expire session cookie
+		if (isset($_COOKIE[session_name()])) {
+			$params = session_get_cookie_params();
+			setcookie(session_name(), '', time() - 3600, $params['path'], $params['domain'], $params['secure'], $params['httponly']);
+		}
+	
+		// Destroy the session
+		session_destroy();
 	}
+	
 
 ?>
