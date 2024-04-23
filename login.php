@@ -2,7 +2,7 @@
 	session_start();										 // Start/renew session
   require 'includes/database-connection.php';
 
-	$logged_in = $_SESSION['logged_in'] ?? false; 		    // Is user logged in?
+	// $logged_in = $_SESSION['logged_in'] ?? false; 		    // Is user logged in?
 
 	function login($username)          					  // Remember user passed login
 	{
