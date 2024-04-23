@@ -1,9 +1,8 @@
 <?php
 	include 'includes/session.php';
-	require 'includes/starRating.php';
 
 	require_login($logged_in);
-    
+
     $username = $_SESSION['username'];
 
     function get_player_id(PDO $pdo, string $username) {
