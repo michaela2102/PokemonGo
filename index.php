@@ -1,10 +1,8 @@
 <?php
 	session_start();
-	var_dump($_SESSION);
 	require 'includes/database-connection.php';
 
     $username = $_SESSION['username'];
-	var_dump($username);
     function get_player_id(PDO $pdo, string $username) {
 
 		// SQL query to retrieve Pokémon information based on the Pokémon ID
@@ -35,9 +33,7 @@
 	}
 
     $PlayerID = get_player_id($pdo, $username);
-	var_dump(strval($PlayerID));
     $pokemon_collection = get_pokemon_collection($pdo, strval($PlayerID[0]["PlayerID"]));
-	var_dump($pokemon_collection);
 ?> 
 
 <!DOCTYPE html>
