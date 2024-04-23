@@ -1,9 +1,40 @@
+<!-- <?php   										// Opening PHP tag
+	
+	// Include the database connection script
+	require 'includes/database-connection.php';
+
+	/*
+	 * Retrieve Pokémon information from the database based on the Pokémon ID.
+	 * 
+	 * @param PDO $pdo       An instance of the PDO class.
+	 * @param string $id     The ID of the Pokémon to retrieve.
+	 * @return array|null    An associative array containing the Pokémon information, or null if no Pokémon is found.
+	 */
+	function get_pokemon_collection(PDO $pdo, string $PlayerID) {
+
+		// SQL query to retrieve Pokémon information based on the Pokémon ID
+		$sql = "SELECT *
+				FROM hasPokemon
+				JOIN pokemon ON hasPokemon.PokemonID = pokemon.PokemonID
+				WHERE PlayerID = :PlayerID;";
+		
+		// Execute the SQL query using the pdo function and fetch the result
+		$pokemon_collection = pdo($pdo, $sql, ['PlayerID' => $PlayerID])->fetchAll();
+
+		// Return the toy information (associative array)
+		return $pokemon_collection;
+	}
+
+	// Retrieve info about toys from the db using provided PDO connection
+	$pokemon_collection = get_pokemon_collection($pdo, '1');
+
+// Closing PHP tag  ?> -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <font color="#FFFFFF">
-    <title>Pokémon Go Trading Page</title> </font>
+    <title>Pokémon Go Trading Page</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
 
