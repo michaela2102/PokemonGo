@@ -88,6 +88,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     hr {
       width: 50%;
       border-color: #ff4c4c; /* Pokémon GO red */
+      margin: 0; /* Remove default margin */
+      float: left;
     }
 
     form {
