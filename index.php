@@ -31,7 +31,8 @@
 		// Return the toy information (associative array)
 		return $pokemon_collection;
 	}
-
+    
+    console.log($username);
     $PlayerID = get_player_id($pdo, $username);
     $pokemon_collection = get_pokemon_collection($pdo, $PlayerID);
 ?> 
