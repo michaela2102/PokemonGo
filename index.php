@@ -88,6 +88,12 @@
 </head>
 <body>
     <h1>Pokémon!</h1>
+
+	<div class="header-right">
+		<ul>
+			<li><?= $logged_in ? '<a href="logout.php">Log Out</a>' : '<a href="login.php">Log In</a>'; ?></li>
+		</ul>
+	</div>
 <!-- -->
 	
 	<!-- Iterate over each Pokémon in the collection -->
