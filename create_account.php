@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     // Prepare SQL statement to insert user data into the database
-    $sql = "INSERT INTO login_info (username, password, email) VALUES (:username, :password, :email);";
+    $sql = "INSERT INTO login_info (username, password, email) VALUES ($username, $password, $email);";
     $stmt = $pdo->prepare($sql);
 
     // Bind parameters and execute the statement
@@ -21,6 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Redirect to a success page or login page
     header('Location: login.php');
+    print "<script>window.location = 'login.php'</script>";
     exit;
 }
 ?>
