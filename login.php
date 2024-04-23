@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cosmic Horoscopes</title>
+  <title>Log-In</title>
 </head>
 
 <body>
@@ -61,15 +61,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
       <nav>
         <ul>
-          <li><a href="index.php">Horoscopes</a></li>
+          <li><a href="home.php">Home</a></li>
         </ul>
       </nav>
-    </div>
-
-    <div>
-      <ul>
-        <li><?= $logged_in ? '<a href="logout.php">Log Out</a>' : '<a href="index.php">Log In</a>'; ?></li>
-      </ul>
     </div>
   </header>
 
