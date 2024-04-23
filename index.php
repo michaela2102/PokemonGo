@@ -35,8 +35,8 @@
 	}
 
     $PlayerID = get_player_id($pdo, $username);
-	var_dump($PlayerID);
-    $pokemon_collection = get_pokemon_collection($pdo, strval($PlayerID));
+	var_dump(strval($PlayerID));
+    $pokemon_collection = get_pokemon_collection($pdo, strval($PlayerID[0]["PlayerID"]));
 	var_dump($pokemon_collection);
 ?> 
 
