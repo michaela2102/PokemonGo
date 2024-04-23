@@ -1,5 +1,6 @@
 <?php
 	session_start();
+    require 'includes/database-connection.php';
     $username = $_SESSION['username'];
 
     function get_player_id(PDO $pdo, string $username) {
