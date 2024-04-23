@@ -82,7 +82,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     h1 {
       color: #ff4c4c; /* Pokémon GO red */
-      font-size: 2em;
       margin-bottom: 20px;
     }
 
@@ -106,7 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     input[type="submit"] {
-      width: 100%;
+      width: 5%;
       padding: 10px;
       margin-top: 10px;
       border: none;
