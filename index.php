@@ -90,7 +90,7 @@
     <h1>Pokémon!</h1>
 	<div class="header-right">
 		<ul>
-			<li>'<a href="logout.php">Log Out</a>' </li>
+			<li><a href="logout.php">Log Out</a> </li>
 		</ul>
 	</div>
 <!-- -->

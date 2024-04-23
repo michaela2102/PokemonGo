@@ -44,8 +44,6 @@
 		}
 	
 		// Destroy the session
-		session_destroy();
+		unset($_SESSION);
 	}
-	
-
 ?>
