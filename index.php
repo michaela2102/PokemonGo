@@ -1,4 +1,6 @@
 <?php
+	session_start();
+	var_dump($_SESSION);
 	include 'includes/session.php';
 	require 'includes/database-connection.php';
 
