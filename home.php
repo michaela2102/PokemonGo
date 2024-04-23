@@ -41,6 +41,7 @@
     <li><a href="login.php">Log in to your account</a></li> <br>
     <li><a href="create_account.php">Create an account</a></li> <br>
     <li><a href="leaderboard.php">View the leaderboard</a></li> <br>
+    <li><a href="trading_page.php">View the pokemon trading page</a></li> <br>
     
     <center>Web Application created and designed by Group 5</center>
 
