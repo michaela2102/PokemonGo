@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     var_dump($password);
     $params = ['username' => $username, 'password' => $password, 'email' => $email];
     var_dump($username);
-    executeSQL($pdo, $sql, $params);
+    $user = pdo($pdo, $sql, $params)->fetch();
     var_dump($email);
 
     // Redirect to a success page or login page
