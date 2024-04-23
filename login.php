@@ -43,7 +43,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 }
 ?> 
-
 <!DOCTYPE html>
 <html>
 
@@ -51,34 +50,104 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Log-in</title>
+  <style>
+    body {
+      background-color: #1a1a1a; /* Dark background color */
+      color: #fff; /* Text color */
+      font-family: Arial, sans-serif; /* Font family */
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #000; /* Header background color */
+      padding: 10px;
+    }
+
+    header nav ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    header nav ul li {
+      display: inline;
+      margin-right: 10px;
+    }
+
+    header nav ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    h1 {
+      color: #ff4c4c; /* Pokémon GO red */
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    hr {
+      border-color: #ff4c4c; /* Pokémon GO red */
+    }
+
+    form {
+      margin-top: 20px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      border: none;
+      border-radius: 5px;
+      background-color: #333; /* Input background color */
+      color: #fff; /* Input text color */
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #ff4c4c; /* Pokémon GO red */
+      color: #fff;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #cc0000; /* Darker red on hover */
+    }
+
+    p.error-message {
+      color: #ff4c4c; /* Error message color */
+    }
+  </style>
 </head>
 
 <body>
   <header>
     <div>
-      <div>
-      </div>
-
+      <div></div>
       <nav>
         <ul>
           <li><a href="index.php">Horoscopes</a></li>
         </ul>
       </nav>
     </div>
-
     <div>
       <ul>
         <li><?= $logged_in ? '<a href="logout.php">Log Out</a>' : '<a href="index.php">Log In</a>'; ?></li>
       </ul>
     </div>
   </header>
-
   <div>
     <h1>Log In</h1>
     <hr />
     <br />
     <?php if(isset($login_err)) { ?>
-      <p style="color: red;"><?php echo $login_err; ?></p>
+      <p class="error-message"><?php echo $login_err; ?></p>
     <?php } ?>
     
     <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
@@ -86,8 +155,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       Password: <input type="password" name="password"><br>
       <input type="submit" value="Log In">
     </form>
-
   </div>
-
 </body>
 </html>
