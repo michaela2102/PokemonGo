@@ -28,9 +28,90 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Account</title>
+    <style>
+    body {
+      background-color: #1a1a1a; /* Dark background color */
+      color: #fff; /* Text color */
+      font-family: Arial, sans-serif; /* Font family */
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #000; /* Header background color */
+      padding: 10px;
+    }
+
+    header nav ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    header nav ul li {
+      display: inline;
+      margin-right: 10px;
+    }
+
+    header nav ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    h1 {
+      color: #ff4c4c; /* Pokémon GO red */
+      margin-bottom: 20px;
+    }
+
+    hr {
+      width: 50%;
+      border-color: #ff4c4c; /* Pokémon GO red */
+      margin: 0; /* Remove default margin */
+      float: left;
+    }
+
+    form {
+      margin-top: 20px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 50%;
+      padding: 10px;
+      margin: 5px 0;
+      border: none;
+      border-radius: 5px;
+      background-color: #333; /* Input background color */
+      color: #fff; /* Input text color */
+    }
+
+    input[type="submit"] {
+      width: 5%;
+      padding: 10px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #ff4c4c; /* Pokémon GO red */
+      color: #fff;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #cc0000; /* Darker red on hover */
+    }
+
+    p.error-message {
+      color: #ff4c4c; /* Error message color */
+    }
+  </style>
 </head>
 
 <body>
+    <nav>
+        <ul>
+          <li><a href="home.php">Home Page</a></li>
+        </ul>
+      </nav>
     <h2>Create Account</h2>
     <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <label for="username">Username:</label><br>
