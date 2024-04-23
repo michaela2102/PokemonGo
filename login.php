@@ -96,7 +96,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     input[type="text"],
     input[type="password"] {
-      width: 100%;
+      width: 50%;
       padding: 10px;
       margin: 5px 0;
       border: none;
@@ -132,14 +132,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <div></div>
       <nav>
         <ul>
-          <li><a href="index.php">Horoscopes</a></li>
+          <li><a href="index.php">Home Page</a></li>
         </ul>
       </nav>
-    </div>
-    <div>
-      <ul>
-        <li><?= $logged_in ? '<a href="logout.php">Log Out</a>' : '<a href="index.php">Log In</a>'; ?></li>
-      </ul>
     </div>
   </header>
   <div>
