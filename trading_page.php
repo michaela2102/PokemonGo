@@ -106,8 +106,6 @@
 		<div class="header-right">
 		    <ul>
                 <li><a href="pokedex.php">Pokédex</a></li>
-		    	<li><a href="hasPokemon.php">My Collection</a></li>
-				<li><a href="logout.php">Log Out</a> </li>
 		    </ul>
         </div>
         <h1>Pokémon Go Trading Page</h1>
