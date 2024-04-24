@@ -16,7 +16,7 @@
 		$sql = "SELECT *
 				FROM hasPokemon
 				JOIN pokemon ON hasPokemon.PokemonID = pokemon.PokemonID
-				WHERE AvailableToTrade = 'Yes';
+				WHERE AvailableToTrade = 'Yes'";
 		
 		// Execute the SQL query using the pdo function and fetch the result
 		$pokemon_collection = pdo($pdo, $sql, ['PlayerID' => $PlayerID])->fetchAll();
