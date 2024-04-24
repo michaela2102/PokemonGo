@@ -123,7 +123,7 @@
                     <!-- Itterating through a list of pokemon in our database that are tradeable randomly generating 10 -->
 
                     <?php
-                         if (!empty($random_trades)){
+                         /*if (!empty($random_trades)){
                              for ($row = 0; $row < count($random_trades); $row++){
                              echo $random_trades[$row]["PokemonID"] . "<li>" . 
                        htmlspecialchars($random_trades[$row]['PokemonName']) . "</li>";
@@ -131,7 +131,7 @@
                     } else {
                         echo "<li>No Pokémon available for trade.</li>";
                     }
-                             
+                            */ 
        ?>
                    
                 </ul>
