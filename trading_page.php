@@ -29,14 +29,14 @@
 	$pokemon_collection = get_pokemon_collection($pdo, '1');
 
         // Function 10 to take 10 randomly generated tradeable pokemon from our database
-        function random_trades(PDO $pdo, int $limit = 10) {
+        function random_trades(PDO $pdo) {
             // SQL query to selkect the 10 random pokemon from the database that are tradeable
             $sql = "SELECT pokemon.PokemonID
                    FROM hasPokemon 
                    JOIN pokemon ON hasPokemon.PokemonID = pokemon.PokemonID
                    WHERE hasPokemon.AvailableToTrade='Yes'
                    ORDER BY RAND()
-                   LIMIT :limit";
+                   LIMIT 10";
  // Prepare the query to prevent SQL injection
     $stmt = $pdo->prepare($sql);
     // Bind the limit parameter
@@ -134,8 +134,8 @@
 
                     <?php
                          if (!empty($pokemon_collection)){
-                             foreach ($pokemon_collection as $pokemon){
-                             Echo echo "<li>" . 
+                             foreach ($row as $random_trades){
+                             echo $row["PokemonID"] "<li>" . 
                        htmlspecialchars($pokemon['PokemonName']) . "</li>";
                         }
                     } else {
