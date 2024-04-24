@@ -79,7 +79,6 @@
     <center>Or, view the leaderboard of PokémonGo players and cheer on your friends!</center><br>
     <center>Once you log in, you can view your current Pokémon.</center><br>
     <li><a href="create_account.php">New user? Create an account</a></li> <br>
-    <li><a href="pokedex.php">View the Pokédex</a></li> <br>
     <li><a href="leaderboard.php">View the leaderboard</a></li> <br>
     <li><a href="trading_page.php">View the pokemon trading page</a></li> <br>
     
