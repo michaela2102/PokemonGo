@@ -113,11 +113,11 @@
     <h2>Complete Leaderboard</h2>
     <br> <br>
 
-    <div>Rank &emsp; Username &emsp; XP</div>
+    <div> <?php str_pad('Rank', 5, ' ', STR_PAD_RIGHT) ?> &emsp; <?php str_pad('Username', 20, ' ', STR_PAD_RIGHT) ?> &emsp; <?php str_pad('XP', 10, ' ', STR_PAD_RIGHT) ?> </div>
     <br>
     <?php
     for ($row = 0; $row < count($rankings); $row++) {
-        echo '<div>' . $rankings[$row]['Rank'] . ' &emsp; ' . $rankings[$row]['Username'] . ' &emsp; ' . $rankings[$row]['XP'] . ' XP</div> <br>';
+        echo '<div>' . str_pad($rankings[$row]['Rank'], 5, ' ', STR_PAD_RIGHT) . ' &emsp; ' . str_pad($rankings[$row]['Username'], 5, ' ', STR_PAD_RIGHT) . ' &emsp; ' . str_pad($rankings[$row]['XP'], 5, ' ', STR_PAD_RIGHT) . '</div> <br>';
     }
     ?>
     
