@@ -111,15 +111,25 @@
     <br>
 
     <h2>Complete Leaderboard</h2>
-    <br> <br>
+<br> <br>
 
-    <div> <?php str_pad('Rank', 5, ' ', STR_PAD_RIGHT) ?> &emsp; <?php str_pad('Username', 20, ' ', STR_PAD_RIGHT) ?> &emsp; <?php str_pad('XP', 10, ' ', STR_PAD_RIGHT) ?> </div>
-    <br>
+<div> 
     <?php
-    for ($row = 0; $row < count($rankings); $row++) {
-        echo '<div>' . str_pad($rankings[$row]['Rank'], 5, ' ', STR_PAD_RIGHT) . ' &emsp; ' . str_pad($rankings[$row]['Username'], 5, ' ', STR_PAD_RIGHT) . ' &emsp; ' . str_pad($rankings[$row]['XP'], 5, ' ', STR_PAD_RIGHT) . '</div> <br>';
-    }
+    // Display column headers with proper padding
+    echo str_pad('Rank', 10, ' ', STR_PAD_RIGHT) . '&emsp;' .
+         str_pad('Username', 20, ' ', STR_PAD_RIGHT) . '&emsp;' .
+         str_pad('XP', 10, ' ', STR_PAD_RIGHT);
     ?>
+</div>
+<br>
+<?php
+// Display the leaderboard data
+for ($row = 0; $row < count($rankings); $row++) {
+    echo '<div>' . str_pad($rankings[$row]['Rank'], 10, ' ', STR_PAD_RIGHT) . '&emsp;' .
+         str_pad($rankings[$row]['Username'], 20, ' ', STR_PAD_RIGHT) . '&emsp;' .
+         str_pad($rankings[$row]['XP'], 10, ' ', STR_PAD_RIGHT) . '</div> <br>';
+}
+?>
     
     
 
