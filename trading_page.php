@@ -31,7 +31,7 @@
         // Function 10 to take 10 randomly generated tradeable pokemon from our database
         function random_trades(PDO $pdo) {
             // SQL query to selkect the 10 random pokemon from the database that are tradeable
-            $sql = "SELECT pokemon.PokemonID
+            $sql = "SELECT pokemon.PokemonID, PokemonName
                    FROM hasPokemon 
                    JOIN pokemon ON hasPokemon.PokemonID = pokemon.PokemonID
                    WHERE hasPokemon.AvailableToTrade='Yes'
@@ -134,9 +134,9 @@
 
                     <?php
                          if (!empty($pokemon_collection)){
-                             foreach ($row as $random_trades){
-                             echo $row["PokemonID"] "<li>" . 
-                       htmlspecialchars($pokemon['PokemonName']) . "</li>";
+                             for ($row = 0; $row < count($random_trades); $row++){
+                             echo $random_trades[$row]["PokemonID"] "<li>" . 
+                       htmlspecialchars($random_trades[$row]['PokemonName']) . "</li>";
                         }
                     } else {
                         echo "<li>No Pokémon available for trade.</li>";
@@ -161,11 +161,11 @@
     <script>
         // Example list of Pokémon with user data (this would usually come from a database)
         const pokemonData = [
-            { name: 'Charmander', user: 'Ash', img: 'charmander.png', stats: 'Level 10, CP 500' },
-            { name: 'Bulbasaur', user: 'Misty', img: 'bulbasaur.png', stats: 'Level 15, CP 600' },
-            { name: 'Squirtle', user: 'Brock', img: 'squirtle.png', stats: 'Level 20, CP 700' },
-            { name: 'Pikachu', user: 'Gary', img: 'pikachu.png', stats: 'Level 25, CP 800' },
-            { name: 'Eevee', user: 'Tracey', img: 'eevee.png', stats: 'Level 5, CP 300' },
+            { name: 'Charmander', user: 'ashK', img: 'charmander.png', stats: 'Level 10, CP 500' },
+            { name: 'Bulbasaur', user: 'michaelaH', img: 'bulbasaur.png', stats: 'Level 15, CP 600' },
+            { name: 'Squirtle', user: 'AlexS', img: 'squirtle.png', stats: 'Level 20, CP 700' },
+            { name: 'Pikachu', user: 'xximjennyxx', img: 'pikachu.png', stats: 'Level 25, CP 800' },
+            { name: 'Eevee', user: 'PENNY', img: 'eevee.png', stats: 'Level 5, CP 300' },
         ];
 
         // Function to search Pokémon
