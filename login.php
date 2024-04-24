@@ -82,7 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     h1 {
       font-family: 'Pokemon', sans-serif;
-      color: #FFFFFF;
+      color: #313167;
       margin-bottom: 20px;
     }
 

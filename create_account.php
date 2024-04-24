@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     h1 {
       font-family: 'Pokemon', sans-serif;
-      color: #FFFFFF;
+      color: #313167;
       margin-bottom: 20px;
     }
 
@@ -117,12 +117,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-    <nav>
+<header>
+    <div>
+      <div></div>
+      <nav>
         <ul>
           <li><a href="home.php">Home Page</a></li>
         </ul>
       </nav>
-    <h2>Create Account</h2>
+    </div>
+  </header>
+    <h1>Create Account</h1>
     <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <label for="username">Username:</label><br>
         <input type="text" id="username" name="username" required><br><br>
