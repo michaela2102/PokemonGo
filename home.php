@@ -123,7 +123,7 @@
     <center>Once you log in, you can view your current Pokémon.</center><br>
     <br>
     <a href="login.php">
-        <img src="login.png" alt="Login Icon" width="20" height="20">
+        <img src="css/login.png" alt="Login Icon" width="20" height="20">
         Log in to your account
     </a><br>
     <a href="create_account.php">Create an account</a><br>
