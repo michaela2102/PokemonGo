@@ -45,7 +45,10 @@
     $stmt->execute();
 
     // Fetch the result as an associative array
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);}
+
+    $random_trades = random_trades($pdo);
+
 
 // Closing PHP tag  ?> -->
 
