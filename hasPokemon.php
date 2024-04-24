@@ -42,20 +42,20 @@
 			// Array to store the filtered Pokémon
 			$filtered_collection = array();
 	        
-	        if ($search == "Legendary"){
+	        if ($search == "Legendary" || $search == "legendary"){
 	            $legend = "Sí";
 	        }
-	        else if ($search == "Not Legendary"){
+	        else if ($search == "Not Legendary" || $search == "not legendary" || $search == "Not legendary"){
 	            $legend = "No";
 	        }
 			else {
 				$legend = "";
 			}
 
-			if ($search == "Shiny"){
+			if ($search == "Shiny" || $search == "shiny"){
 				$shiny = "Yes";
 			}
-			else if ($search == "Not Shiny"){
+			else if ($search == "Not Shiny" || $search == "not shiny" || $search == "Not shiny"){
 				$shiny = "No";
 			}
 			else {
@@ -150,6 +150,22 @@
 			margin-bottom: 20px;
 		}
 
+		.add-button {
+			padding: 10px;
+			background-color: #5C7FD0;
+			border: 2px solid #313167;
+			color: white;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+
+		/* Hover effect */
+		.add-button:hover {
+			background-color: #313167; /* Dark blue background color on hover */
+			border-color: #B986D7; /* Magenta border color on hover */
+			color: #B986D7; /* Change text color to magenta on hover */
+		}
+
 		.header-left {
 			float: left;
 		}
@@ -202,13 +218,15 @@
 			</ul>
 		</div>
 	</header>
-    <h1> My Pokémon!</h1>
-		<div class="search-container">
-			<form action="hasPokemon.php" method="get">
-				<input type="text" name="search" placeholder="Search for a Pokémon!">
-				<input type="submit" value="Search">
-			</form>
-		</div>
+	<h1> My Pokémon!</h1>
+	<div class="search-container">
+		<form action="hasPokemon.php" method="get">
+			<input type="text" name="search" placeholder="Search for a Pokémon!">
+			<input type="submit" value="Search">
+		</form>
+		<a href="add.php"><button class="add-button">Add to your collection!</button></a>
+	</div>
+	</div>
 <!-- -->
 	
 	<!-- Iterate over each Pokémon in the collection -->

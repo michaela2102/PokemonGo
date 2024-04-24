@@ -126,26 +126,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </ul>
       </nav>
     </div>
-  </header>
-    <h1>Add Pokemon</h1>
+</header>
+    <h1>Add Pokémon!</h1>
     <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-        <label for="Pokedex">Pokedex ID:</label><br>
-        <input type="text" id="username" name="username" required><br><br>
+        <label for="PokemonID">Pokédex ID:</label><br>
+        <input type="text" id="PokemonID" name="PokemonID" required><br><br>
+
         <label for="DateCaught">What date did you catch this pokemon? </label><br>
-        <input type="password" id="password" name="password" required><br><br>
+        <input type="date" id="DateCaught" name="DateCaught" required><br><br>
+
         <label for="stats">Stats Multiplier:</label><br>
-        <input type="email" id="email" name="email" required><br><br>
-        <label for="stats">Is this pokemon shiny?</label><br>
-        <input type="email" id="email" name="email" required><br><br>
+        <input type="test" id="stats" name="stats" required><br><br>
+
+        <label for="shiny">Is this pokemon shiny?</label><br>
+        <input type="checkbox" id="shiny" name="shiny" required><br><br>
+
         <label for="party">Is this pokemon in your party?</label><br>
-        <input type="email" id="email" name="email" required><br><br>
+        <input type="checkbox" id="party" name="party" required><br><br>
+
         <label for="trade">Is this pokemon available to trade?</label><br>
-        <input type="email" id="email" name="email" required><br><br>
+        <input type="checkbox" id="trade" name="trade" required><br><br>
+
         <label for="stars">How many stars?</label><br>
-        <input type="email" id="email" name="email" required><br><br>
+        <select id="stars" name="stars" required>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select><br><br>
+
         <label for="cp">CP?</label><br>
-        <input type="email" id="email" name="email" required><br><br>
-        <input type="submit" value="Create Account">
+        <input type="text" id="cp" name="cp" required><br><br>
+
+        <input type="submit" value="Add Pokémon">
     </form>
 </body>
 

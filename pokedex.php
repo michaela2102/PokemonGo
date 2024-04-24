@@ -70,28 +70,6 @@
 		return $filtered_pokemon;
 	}
 
-	// Function to add a Pokémon to the player's collection
-	function add_to_collection($pokemon_id) {
-		// Include the hasPokemon.php file to access the $pokemon_collection variable
-		require 'hasPokemon.php';
-
-		// Display a form to collect the stats for the Pokémon
-		echo '<form action="save_stats.php" method="post">';
-		echo '<input type="hidden" name="pokemon_id" value="' . $pokemon_id . '">';
-
-		// Add input fields for each stat
-		echo 'Attack: <input type="number" name="attack"><br>';
-		echo 'Defense: <input type="number" name="defense"><br>';
-		echo 'Speed: <input type="number" name="speed"><br>';
-
-		// Add a submit button to save the stats
-		echo '<input type="submit" value="Save Stats">';
-		echo '</form>';
-
-		// Add the Pokémon ID to the player's collection array
-		$pokemon_collection[] = $pokemon_id;
-	}
-
 ?> -->
 
 <!DOCTYPE html>
@@ -135,26 +113,6 @@
 		.pokemon-card h2 {
 			margin: 2px 0; /* Add some margin to the heading elements */
 			font-size: 14px; /* Set the font size to 14px */
-		}
-
-		.pokemon-card .add-button {
-			top: 5px;
-			right: 5px;
-			width: 20px;
-			height: 20px;
-			background-color: #313167;
-			border-radius: 50%;
-			color: #B986D7;
-			font-size: 12px;
-			text-align: center;
-			line-height: 20px;
-			cursor: pointer;
-			position: absolute;
-		}
-
-		.pokemon-card .add-button:hover {
-			background-color: #B986D7;
-			color: #313167;
 		}
 
 		/* Hover effect */
@@ -257,9 +215,6 @@
 		?>
 	
 		<div class="pokemon-card">
-			<!-- Display add button for each Pokémon -->
-			<div class="add-button" onclick="add_to_collection(<?= $PokemonID ?>)">+</div>
-
 			<!-- Create a hyperlink to poke.php page with PokemonID as parameter -->
 			<a href="poke.php?PokemonID=<?= $PokemonID ?>">
 				<!-- Display image of Pokémon with its name as alt text -->
