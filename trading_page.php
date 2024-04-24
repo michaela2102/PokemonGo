@@ -105,7 +105,7 @@
 
 		<div class="header-right">
 		    <ul>
-                <li><a href="pokedex.php">Pokédex</a></li>
+                <a href="login.php" class="login-icon"> <img src="images/login.png" alt="Login Icon" width= "10%" height="10%"></a><br>
 		    </ul>
         </div>
         <h1>Pokémon Go Trading Page</h1>
