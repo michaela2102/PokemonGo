@@ -27,6 +27,8 @@
 
 	// Retrieve info about toys from the db using provided PDO connection
 	$pokemon_collection = get_pokemon_collection($pdo, '1');
+var_dump($pokemon_collection);
+
 
         // Function 10 to take 10 randomly generated tradeable pokemon from our database
         function random_trades(PDO $pdo) {
@@ -39,8 +41,11 @@
                    LIMIT 10";
  // Prepare the query to prevent SQL injection
     $stmt = $pdo->prepare($sql);
+var_dump($stmt);
     // Bind the limit parameter
     $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
+var_dump($stmt);
+
     // Execute the query
     $stmt->execute();
 
