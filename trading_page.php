@@ -10,24 +10,7 @@
 	 * @param string $id     The ID of the Pokémon to retrieve.
 	 * @return array|null    An associative array containing the Pokémon information, or null if no Pokémon is found.
 	 */
-	function get_pokemon_collection(PDO $pdo, string $PlayerID) {
-
-		// SQL query to retrieve Pokémon information based on the Pokémon ID
-		$sql = "SELECT *
-				FROM hasPokemon
-				JOIN pokemon ON hasPokemon.PokemonID = pokemon.PokemonID
-				WHERE AvailableToTrade = 'Yes'";
-		
-		// Execute the SQL query using the pdo function and fetch the result
-		$pokemon_collection = pdo($pdo, $sql, ['PlayerID' => $PlayerID])->fetchAll();
-
-		// Return the toy information (associative array)
-		return $pokemon_collection;
-	}
-
-	// Retrieve info about toys from the db using provided PDO connection
-	$pokemon_collection = get_pokemon_collection($pdo, '1');
-
+	
 
 
         // Function 10 to take 10 randomly generated tradeable pokemon from our database
