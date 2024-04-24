@@ -28,6 +28,7 @@
         }
 
         header nav ul li {
+            color: #313167;
             display: inline;
             margin-right: 10px;
         }
@@ -38,6 +39,7 @@
         }
 
         h1 {
+            text-align: center;
             font-family: 'Pokemon', sans-serif;
             color: #FFFFFF;
             margin-bottom: 20px;

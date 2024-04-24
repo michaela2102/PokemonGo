@@ -30,15 +30,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Create Account</title>
     <style>
     body {
-      background-color: #1a1a1a; /* Dark background color */
-      color: #fff; /* Text color */
+      background-color: #98C8DE; /* Dark background color */
+      color: #333; /* Text color */
       font-family: Arial, sans-serif; /* Font family */
       margin: 0;
       padding: 0;
     }
 
     header {
-      background-color: #000; /* Header background color */
+      background-color: #313167; /* Header background color */
       padding: 10px;
     }
 
@@ -59,13 +59,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     h1 {
-      color: #ff4c4c; /* Pokémon GO red */
+      font-family: 'Pokemon', sans-serif;
+      color: #FFFFFF;
       margin-bottom: 20px;
     }
 
     hr {
       width: 50%;
-      border-color: #ff4c4c; /* Pokémon GO red */
+      border-color: #ffffff;
       margin: 0; /* Remove default margin */
       float: left;
     }
@@ -81,8 +82,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       margin: 5px 0;
       border: none;
       border-radius: 5px;
-      background-color: #333; /* Input background color */
-      color: #fff; /* Input text color */
+      background-color: #fff; /* Input background color */
+      color: #000; /* Input text color */
     }
     input[type="email"] {
       width: 50%;
@@ -90,8 +91,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       margin: 5px 0;
       border: none;
       border-radius: 5px;
-      background-color: #333; /* Input background color */
-      color: #fff; /* Input text color */
+      background-color: #fff; /* Input background color */
+      color: #000; /* Input text color */
     }
 
     input[type="submit"] {
