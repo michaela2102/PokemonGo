@@ -27,45 +27,6 @@
             text-align: center;
         }
 
-        /* Navigation styles */
-        .header-left,
-        .header-right {
-            float: left;
-            font-size: 14px;
-        }
-
-        .header-right {
-            float: right;
-        }
-
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        nav ul li {
-            display: inline;
-            margin-right: 10px;
-        }
-
-        nav ul li a {
-            color: #FFFFFF;
-            text-decoration: none;
-        }
-
-        /* Sidebar styles */
-        .sidebar {
-            background-color: #645AA4;
-            padding: 20px;
-            color: #FFF;
-            height: 100vh;
-            overflow-y: auto;
-        }
-
-        .sidebar h2 {
-            color: #FFFFFF;
-        }
-
         /* Content styles */
         .content {
             padding: 20px;
@@ -75,30 +36,6 @@
             margin-bottom: 20px;
         }
 
-        /* Pokémon styles */
-        .pokemon {
-            border: 1px solid #ddd;
-            padding: 10px;
-            margin: 10px 0;
-            background: white;
-            display: flex;
-            align-items: center;
-        }
-
-        .pokemon img {
-            height: 60px;
-            margin-right: 20px;
-        }
-
-        /* Button styles */
-        .chat-button {
-            background: #B986D7;
-            color: white;
-            padding: 5px 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
         .login-icon {
             position: absolute;
             top: 10px; /* Adjust as needed */
@@ -114,7 +51,7 @@
     <center>Once you log in, you can view your current Pokémon.</center><br>
     <br>
     <a href="login.php" class="login-icon">
-        <img src="images/login.png" alt="Login Icon" width= "20%" height="20%">
+        <img src="images/login.png" alt="Login Icon" width= "10%" height="10%">
     </a><br>
     <li><a href="create_account.php">New user? Create an account</a></li> <br>
     <li><a href="leaderboard.php">View the leaderboard</a></li> <br>
