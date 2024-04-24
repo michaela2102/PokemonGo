@@ -42,8 +42,7 @@
  // Prepare the query to prevent SQL injection
     $stmt = $pdo->prepare($sql);
 
-    // Bind the limit parameter
-    $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
+    
 
 
     // Execute the query
