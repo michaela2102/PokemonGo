@@ -83,13 +83,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     h1 {
       font-family: 'Pokemon', sans-serif;
       color: #FFFFFF;
-      
+
       margin-bottom: 20px;
     }
 
     hr {
       width: 50%;
-      border-color: #ff4c4c; /* Pokémon GO red */
+      border-color: #ffffff;
       margin: 0; /* Remove default margin */
       float: left;
     }
@@ -105,8 +105,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       margin: 5px 0;
       border: none;
       border-radius: 5px;
-      background-color: #333; /* Input background color */
-      color: #fff; /* Input text color */
+      background-color: #fff; /* Input background color */
+      color: #000; /* Input text color */
     }
 
     input[type="submit"] {
@@ -115,8 +115,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       margin-top: 10px;
       border: none;
       border-radius: 5px;
-      background-color: #ff4c4c; /* Pokémon GO red */
-      color: #fff;
+      background-color: #fff; /* Pokémon GO red */
+      color: #000;
       cursor: pointer;
     }
 

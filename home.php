@@ -6,15 +6,15 @@
     <title>Pokémon Home Page</title>
     <style>
         body {
-            background-color: #1a1a1a; /* Dark background color */
-            color: #fff; /* Text color */
+            background: #98C8DE;
+            color: #333;
             font-family: Arial, sans-serif; /* Font family */
             margin: 0;
             padding: 0;
         }
 
         header {
-            background-color: #000; /* Header background color */
+            background-color: #313167; /* Header background color */
             padding: 10px;
             display: flex; /* Use flexbox for layout */
             justify-content: space-between; /* Align items to the left and right */
@@ -38,14 +38,14 @@
         }
 
         h1 {
-            text-align: center;
-            color: #ff4c4c; /* Pokémon GO red */
+            font-family: 'Pokemon', sans-serif;
+            color: #FFFFFF;
             margin-bottom: 20px;
         }
 
         hr {
             width: 50%;
-            border-color: #ff4c4c; /* Pokémon GO red */
+            border-color: #ffffff; /* Pokémon GO red */
             margin: 0; /* Remove default margin */
             float: left;
         }
