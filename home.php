@@ -40,10 +40,12 @@
     <br>
     <li><a href="login.php">Log in to your account</a></li> <br>
     <li><a href="create_account.php">Create an account</a></li> <br>
+    <li><a href="pokedex.php">View the Pokédex</a></li> <br>
+    <li><a href="hasPokemon.php">View your collection</a></li> <br>
     <li><a href="leaderboard.php">View the leaderboard</a></li> <br>
-    <li><a href="trading_page.php">View the pokemon trading page</a></li> <br>
+    <li><a href="trading_page.php">View the Pokémon trading page</a></li> <br>
     
-    <center>Web Application created and designed by Group 5</center>
+    <center>Pokémon Go Community Web Application created and designed by Group 5</center>
 
     
 </body>

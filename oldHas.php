@@ -1,29 +1,23 @@
-<?php
-	session_start();
+<!-- <?php   										// Opening PHP tag
+	
+	// Include the database connection script
 	require 'includes/database-connection.php';
 
-    $username = $_SESSION['username'];
-    function get_player_id(PDO $pdo, string $username) {
-
-		// SQL query to retrieve Pokémon information based on the Pokémon ID
-		$sql = "SELECT PlayerID
-				FROM player
-				WHERE Username = :username;";
-		
-		// Execute the SQL query using the pdo function and fetch the result
-		$pokemon_collection = pdo($pdo, $sql, ['username' => $username])->fetchAll();
-
-		// Return the toy information (associative array)
-		return $pokemon_collection;
-	}
-
-    function get_pokemon_collection(PDO $pdo, string $PlayerID) {
+	/*
+	 * Retrieve Pokémon information from the database based on the Pokémon ID.
+	 * 
+	 * @param PDO $pdo       An instance of the PDO class.
+	 * @param string $id     The ID of the Pokémon to retrieve.
+	 * @return array|null    An associative array containing the Pokémon information, or null if no Pokémon is found.
+	 */
+	function get_pokemon_collection(PDO $pdo, string $PlayerID) {
 
 		// SQL query to retrieve Pokémon information based on the Pokémon ID
 		$sql = "SELECT *
 				FROM hasPokemon
 				JOIN pokemon ON hasPokemon.PokemonID = pokemon.PokemonID
-				WHERE PlayerID = :PlayerID;";
+				WHERE PlayerID = :PlayerID
+				ORDER BY hasPokemon.PokemonID";
 		
 		// Execute the SQL query using the pdo function and fetch the result
 		$pokemon_collection = pdo($pdo, $sql, ['PlayerID' => $PlayerID])->fetchAll();
@@ -32,9 +26,11 @@
 		return $pokemon_collection;
 	}
 
-    $PlayerID = get_player_id($pdo, $username);
-    $pokemon_collection = get_pokemon_collection($pdo, strval($PlayerID[0]["PlayerID"]));
-?> 
+	// PROBLEMMMMM Retrieve info about toys from the db using provided PDO connection
+	$playerID = $_SESSION['playerID']; // Assuming the player ID is stored in the session variable
+	$pokemon_collection = get_pokemon_collection($pdo, $playerID);
+
+// Closing PHP tag  ?> -->
 
 <!DOCTYPE html>
 <html>
@@ -88,11 +84,6 @@
 </head>
 <body>
     <h1>Pokémon!</h1>
-	<div class="header-right">
-		<ul>
-			<li><a href="logout.php">Log Out</a> </li>
-		</ul>
-	</div>
 <!-- -->
 	
 	<!-- Iterate over each Pokémon in the collection -->
@@ -107,7 +98,7 @@
 
     	<div class="pokemon-card">
         	<!-- Display image of toy with its name as alt text -->
-        	<img src="<?= $image_src ?>" alt="<?= $pokemon['Name'] ?>">
+        	<img src="<?= $image_src ?>" alt="<?= $PokemonName ?>">
         
         	<!-- Display ID of Pokémon -->
         	<h2># <?= $PokemonID ?></h2>

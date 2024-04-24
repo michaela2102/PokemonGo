@@ -22,8 +22,8 @@
   	}
 
 if ($logged_in) {   
-  header('Location: index.php'); 
-  print "<script>window.location = 'index.php'</script>";
+  header('Location: hasPokemon.php'); 
+  print "<script>window.location = 'hasPokemon.php'</script>";
   exit;
 }    
 
@@ -35,8 +35,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if ($user) {
     login($username);                               
-    header('Location: index.php');
-    print "<script>window.location = 'index.php'</script>";
+    header('Location: hasPokemon.php');
+    print "<script>window.location = 'hasPokemon.php'</script>";
     exit;   
   } else {
     $login_err = "Invalid username or password";

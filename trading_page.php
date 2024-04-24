@@ -82,10 +82,34 @@
             border-radius: 5px;
             cursor: pointer;
         }
+        .header-left {
+			float: left;
+            font-size: 14px;
+		}
+		.header-right {
+			float: right;
+            font-size: 14px;
+		}
     </style>
 </head>
 <body>
     <header>
+		<div class="header-left">
+			<nav>
+	      		<ul>
+	      			<li><a href="home.php">Home</a></li>
+	      			<li><a href="leaderboard.php">Leaderboard</a></li>
+			    </ul>
+			</nav>
+		</div>
+
+		<div class="header-right">
+		    <ul>
+                <li><a href="pokedex.php">Pokédex</a></li>
+		    	<li><a href="hasPokemon.php">My Collection</a></li>
+				<li><a href="logout.php">Log Out</a> </li>
+		    </ul>
+        </div>
         <h1>Pokémon Go Trading Page</h1>
     </header>
     
