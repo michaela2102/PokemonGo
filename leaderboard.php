@@ -62,9 +62,33 @@
             display: block;
             margin: 0 auto; /* Centers the image horizontally */
         }
+        .header-left {
+			float: left;
+		}
+		.header-right {
+			float: right;
+		}
     </style>
 </head>
 <body>
+    <header>
+		<div class="header-left">
+			<nav>
+	      		<ul>
+	      			<li><a href="home.php">Home</a></li>
+					<li><a href="trading_page.php">Trading</a> </li>
+			    </ul>
+			</nav>
+		</div>
+
+		<div class="header-right">
+		    <ul>
+                <li><a href="pokedex.php">Pokédex</a></li>
+		    	<li><a href="hasPokemon.php">My Collection</a></li>
+				<li><a href="logout.php">Log Out</a> </li>
+		    </ul>
+		</div>
+	</header>
     <h1>PokémonGo Player Leaderboard</h1>
 
 	<h2>Top 3 PokémonGo Players</h2>
