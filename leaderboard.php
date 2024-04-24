@@ -38,37 +38,52 @@
     <title>PokémonGo Player Leaderboard</title>
 
     <style>
-        /* Basic CSS for styling */
-        body {
-            font-family: Arial, sans-serif;
-        }
-        h1 {
-            text-align: center;
-        }
-        h2 {
-            text-align: center;
-        }
-        div {
-            text-align: center;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        li {
-            margin-bottom: 10px;
-        }
-        img.center {
-            display: block;
-            margin: 0 auto; /* Centers the image horizontally */
-        }
-        .header-left {
-			float: left;
-		}
-		.header-right {
-			float: right;
-		}
-    </style>
+    body {
+      background-color: #98C8DE; /* Dark background color */
+      color: #333; /* Text color */
+      font-family: Arial, sans-serif; /* Font family */
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #313167;
+      padding: 10px;
+    }
+
+    header nav ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    header nav ul li {
+      display: inline;
+      margin-right: 10px;
+    }
+
+    header nav ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    h1 {
+      font-family: 'Pokemon', sans-serif;
+      color: #313167;
+      margin-bottom: 20px;
+    }
+
+    hr {
+      width: 50%;
+      border-color: #ffffff;
+      margin: 0; /* Remove default margin */
+      float: left;
+    }
+
+    p.error-message {
+      color: #ff4c4c; /* Error message color */
+    }
+  </style>
 </head>
 <body>
     <header>
@@ -84,6 +99,8 @@
 		<div class="header-right">
 		    <ul>
                 <li><a href="pokedex.php">Pokédex</a></li>
+		    	<li><a href="hasPokemon.php">My Collection</a></li>
+				<li><a href="logout.php">Log Out</a> </li>
 		    </ul>
 		</div>
 	</header>
@@ -111,25 +128,15 @@
     <br>
 
     <h2>Complete Leaderboard</h2>
-<br> <br>
+    <br> <br>
 
-<div> 
+    <div>Rank &emsp; Username &emsp; XP</div>
+    <br>
     <?php
-    // Display column headers with proper padding
-    echo str_pad('Rank', 10, ' ', STR_PAD_RIGHT) . '&emsp;' .
-         str_pad('Username', 20, ' ', STR_PAD_RIGHT) . '&emsp;' .
-         str_pad('XP', 10, ' ', STR_PAD_RIGHT);
+    for ($row = 0; $row < count($rankings); $row++) {
+        echo '<div>' . $rankings[$row]['Rank'] . ' &emsp; ' . $rankings[$row]['Username'] . ' &emsp; ' . $rankings[$row]['XP'] . ' XP</div> <br>';
+    }
     ?>
-</div>
-<br>
-<?php
-// Display the leaderboard data
-for ($row = 0; $row < count($rankings); $row++) {
-    echo '<div>' . str_pad($rankings[$row]['Rank'], 10, ' ', STR_PAD_RIGHT) . '&emsp;' .
-         str_pad($rankings[$row]['Username'], 20, ' ', STR_PAD_RIGHT) . '&emsp;' .
-         str_pad($rankings[$row]['XP'], 10, ' ', STR_PAD_RIGHT) . '</div> <br>';
-}
-?>
     
     
 
