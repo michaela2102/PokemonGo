@@ -5,35 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokémon Home Page</title>
     <style>
-        li {
-            margin-bottom: 10px;
-            text-align: center;
-        }
         body {
-            background: #98C8DE;
-            color: #333;
-            font-family: Arial, sans-serif;
-        }
-
-        h1 {
-            font-family: 'Pokemon', sans-serif;
-            color: #FFFFFF;
-            text-align: center;
+        background-color: #1a1a1a; /* Dark background color */
+        color: #fff; /* Text color */
+        font-family: Arial, sans-serif; /* Font family */
+        margin: 0;
+        padding: 0;
         }
 
         header {
-            background-color: #313167;
-            padding: 10px;
-            text-align: center;
+        background-color: #000; /* Header background color */
+        padding: 10px;
         }
 
-        /* Content styles */
-        .content {
-            padding: 20px;
+        header nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
         }
 
-        .form-group {
-            margin-bottom: 20px;
+        header nav ul li {
+        display: inline;
+        margin-right: 10px;
+        }
+
+        header nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        }
+
+        h1 {
+        color: #ff4c4c; /* Pokémon GO red */
+        margin-bottom: 20px;
+        }
+
+        hr {
+        width: 50%;
+        border-color: #ff4c4c; /* Pokémon GO red */
+        margin: 0; /* Remove default margin */
+        float: left;
         }
 
         .login-icon {
@@ -44,9 +54,15 @@
     </style>
 </head>
 <body>
-    <a href="login.php" class="login-icon">
-            <img src="images/login.png" alt="Login Icon" width= "10%" height="10%">
-    </a><br>
+    <header>
+        <nav>
+            <ul>
+                <li>    
+                    <a href="login.php" class="login-icon"> <img src="images/login.png" alt="Login Icon" width= "10%" height="10%"></a><br>
+                </li>
+            </ul>
+        </nav>
+    </header>
 
     <h1>Welcome to our PokémonGo Web Application!</h1>
 
