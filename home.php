@@ -4,30 +4,115 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokémon Home Page</title>
+    /* General styles */
     <style>
-        /* Basic CSS for styling */
         body {
+            background: #98C8DE;
+            color: #333;
             font-family: Arial, sans-serif;
         }
+
         h1 {
+            font-family: 'Pokemon', sans-serif;
+            color: #FFFFFF;
             text-align: center;
         }
-        ul {
+
+        header {
+            background-color: #313167;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* Navigation styles */
+        .header-left,
+        .header-right {
+            float: left;
+            font-size: 14px;
+        }
+
+        .header-right {
+            float: right;
+        }
+
+        nav ul {
             list-style-type: none;
             padding: 0;
         }
-        li {
-            margin-bottom: 10px;
-            text-align: center;
+
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
         }
-        a {
-            text-align: center;
+
+        nav ul li a {
+            color: #FFFFFF;
+            text-decoration: none;
         }
-        h2 {
-            text-align: center;
+
+        /* Sidebar styles */
+        .sidebar {
+            background-color: #645AA4;
+            padding: 20px;
+            color: #FFF;
+            height: 100vh;
+            overflow-y: auto;
         }
-        div {
-            text-align: center;
+
+        .sidebar h2 {
+            color: #FFFFFF;
+        }
+
+        /* Content styles */
+        .content {
+            padding: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        /* Pokémon styles */
+        .pokemon {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px 0;
+            background: white;
+            display: flex;
+            align-items: center;
+        }
+
+        .pokemon img {
+            height: 60px;
+            margin-right: 20px;
+        }
+
+        /* Button styles */
+        .chat-button {
+            background: #B986D7;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .header-left,
+            .header-right {
+                float: none;
+                text-align: center;
+            }
+
+            .sidebar {
+                height: auto;
+            }
+
+            .col-md-3.sidebar,
+            .col-md-9.content {
+                width: 100%;
+            }
         }
     </style>
 </head>
