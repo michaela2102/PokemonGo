@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokémon Home Page</title>
-    /* General styles */
     <style>
         body {
             background: #98C8DE;
@@ -123,12 +122,14 @@
     <center>Or, view the leaderboard of PokémonGo players and cheer on your friends!</center><br>
     <center>Once you log in, you can view your current Pokémon.</center><br>
     <br>
-    <li><a href="login.php">Log in to your account</a></li> <br>
-    <li><a href="create_account.php">Create an account</a></li> <br>
-    <li><a href="pokedex.php">View the Pokédex</a></li> <br>
-    <li><a href="hasPokemon.php">View your collection</a></li> <br>
-    <li><a href="leaderboard.php">View the leaderboard</a></li> <br>
-    <li><a href="trading_page.php">View the Pokémon trading page</a></li> <br>
+    <a href="login.php">
+        <img src="login.png" alt="Login Icon" width="20" height="20">
+        Log in to your account
+    </a><br>
+    <a href="create_account.php">Create an account</a><br>
+    <a href="pokedex.php">View the Pokédex</a></li> <br>
+    <a href="leaderboard.php">View the leaderboard</a><br>
+    <a href="trading_page.php">View the Pokémon trading page</a> <br>
     
     <center>Pokémon Go Community Web Application created and designed by Group 5</center>
 
