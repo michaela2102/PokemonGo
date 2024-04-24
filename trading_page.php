@@ -146,11 +146,11 @@
     <script>
         // Example list of Pokémon with user data (this would usually come from a database)
         const pokemonData = [
-            { name: 'Charmander', user: 'Ash', img: 'charmander.png', stats: 'Level 10, CP 500' },
-            { name: 'Bulbasaur', user: 'Misty', img: 'bulbasaur.png', stats: 'Level 15, CP 600' },
-            { name: 'Squirtle', user: 'Brock', img: 'squirtle.png', stats: 'Level 20, CP 700' },
-            { name: 'Pikachu', user: 'Gary', img: 'pikachu.png', stats: 'Level 25, CP 800' },
-            { name: 'Eevee', user: 'Tracey', img: 'eevee.png', stats: 'Level 5, CP 300' },
+            { name: 'Charmander', user: 'ashK', img: 'https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/004.png', stats: 'Level 10, CP 500' },
+            { name: 'Bulbasaur', user: 'michaelaH', img: 'https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/001.png', stats: 'Level 15, CP 600' },
+            { name: 'Squirtle', user: 'AlexS', img: 'https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/007.png', stats: 'Level 20, CP 700' },
+            { name: 'Pikachu', user: 'xximjennyxx', img: 'https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/025.png', stats: 'Level 25, CP 800' },
+            { name: 'Eevee', user: 'PENNY', img: 'https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/133.png', stats: 'Level 5, CP 300' },
         ];
 
         // Function to search Pokémon

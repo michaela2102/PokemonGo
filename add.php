@@ -1,26 +1,54 @@
 <?php
 session_start();
 require 'includes/database-connection.php'; // Include your database connection file
+$username = $_SESSION['username'];
+
+function get_player_id(PDO $pdo, string $username) {
+
+    // SQL query to retrieve PlayerID based on the username
+    $sql = "SELECT PlayerID
+            FROM player
+            WHERE Username = :username;";
+    
+    // Execute the SQL query using the pdo function and fetch the result
+    $PlayerID = pdo($pdo, $sql, ['username' => $username])->fetchAll();
+
+    // Return the Pokémon collection (associative array)
+    return $PlayerID;
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $email = $_POST['email'];
-    // Hash the password for security
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    $PlayerID = get_player_id($pdo, $username);
+    $pokedex_id = $_POST['pokedex_id'];
+    $date_caught = $_POST['date_caught'];
+    $stats_multiplier = $_POST['stats_multiplier'];
+    $is_shiny = $_POST['is_shiny'];
+    $in_fighting_party = $_POST['in_fighting_party'];
+    $available_to_trade = $_POST['available_to_trade'];
+    $num_stars = $_POST['num_stars'];
+    $cp = $_POST['cp'];
+    
     // Prepare SQL statement to insert user data into the database
-    $sql = "INSERT INTO login_info (username, password, email) VALUES (:username, :password, :email)";
-    $params = ['username' => $username, 'password' => $password, 'email' => $email];
+    $sql = "INSERT INTO hasPokemon (PlayerID, PokedexID, DateCaught, StatsMultiplier, IsShiny, InFightingParty, AvailableToTrade, NumStars, CP) VALUES (:player_id, :pokedex_id, :date_caught, :stats_multiplier, :is_shiny, :in_fighting_party, :available_to_trade, :num_stars, :cp)";
+    $params = [
+        'player_id' => $PlayerID,
+        'pokedex_id' => $pokedex_id,
+        'date_caught' => $date_caught,
+        'stats_multiplier' => $stats_multiplier,
+        'is_shiny' => $is_shiny,
+        'in_fighting_party' => $in_fighting_party,
+        'available_to_trade' => $available_to_trade,
+        'num_stars' => $num_stars,
+        'cp' => $cp
+    ];
     $stmt = $pdo->prepare($sql);
     $stmt->execute($params);
 
     // Redirect to a success page or login page
     header('Location: login.php');
-    print "<script>window.location = 'login.php'</script>";
     exit;
 }
 ?>
-
 <!DOCTYPE html>
 <html>
 
@@ -126,29 +154,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </ul>
       </nav>
     </div>
-</header>
+  </header>
     <h1>Add Pokémon!</h1>
     <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <label for="PokemonID">Pokédex ID:</label><br>
-        <input type="text" id="PokemonID" name="PokemonID" required><br><br>
+        <input type="text" id="pokedex_id" name="PokemonID" required><br><br>
 
         <label for="DateCaught">What date did you catch this pokemon? </label><br>
-        <input type="date" id="DateCaught" name="DateCaught" required><br><br>
+        <input type="date" id="date_caught" name="DateCaught" required><br><br>
 
         <label for="stats">Stats Multiplier:</label><br>
-        <input type="test" id="stats" name="stats" required><br><br>
+        <input type="test" id="stats_multiplier" name="stats" required><br><br>
 
         <label for="shiny">Is this pokemon shiny?</label><br>
-        <input type="checkbox" id="shiny" name="shiny" required><br><br>
+        <input type="checkbox" id="is_shiny" name="shiny" required><br><br>
 
         <label for="party">Is this pokemon in your party?</label><br>
-        <input type="checkbox" id="party" name="party" required><br><br>
+        <input type="checkbox" id="in_fighting_party" name="party" required><br><br>
 
         <label for="trade">Is this pokemon available to trade?</label><br>
-        <input type="checkbox" id="trade" name="trade" required><br><br>
+        <input type="checkbox" id="available_to_trade" name="trade" required><br><br>
 
         <label for="stars">How many stars?</label><br>
-        <select id="stars" name="stars" required>
+        <select id="stars" name="num_stars" required>
             <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
