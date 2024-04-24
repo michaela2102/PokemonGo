@@ -16,7 +16,7 @@
 		$sql = "SELECT *
 				FROM hasPokemon
 				JOIN pokemon ON hasPokemon.PokemonID = pokemon.PokemonID
-				WHERE PlayerID = :PlayerID;";
+				WHERE AvailableToTrade = 'Yes';
 		
 		// Execute the SQL query using the pdo function and fetch the result
 		$pokemon_collection = pdo($pdo, $sql, ['PlayerID' => $PlayerID])->fetchAll();
@@ -27,6 +27,25 @@
 
 	// Retrieve info about toys from the db using provided PDO connection
 	$pokemon_collection = get_pokemon_collection($pdo, '1');
+
+        // Function 10 to take 10 randomly generated tradeable pokemon from our database
+        function random_trades(PDO $pdo, int $limit = 10) {
+            // SQL query to selkect the 10 random pokemon from the database that are tradeable
+            $sql = "SELECT pokemon.PokemonID
+                   FROM hasPokemon 
+                   JOIN pokemon ON hasPokemon.PokemonID = pokemon.PokemonID
+                   WHERE hasPokemon.AvailableToTrade='Yes'
+                   ORDER BY RAND()
+                   LIMIT :limit";
+ // Prepare the query to prevent SQL injection
+    $stmt = $pdo->prepare($sql);
+    // Bind the limit parameter
+    $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
+    // Execute the query
+    $stmt->execute();
+
+    // Fetch the result as an associative array
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 // Closing PHP tag  ?> -->
 
@@ -82,18 +101,10 @@
             border-radius: 5px;
             cursor: pointer;
         }
-        .header-left {
-			float: left;
-            font-size: 14px;
-		}
-		.header-right {
-			float: right;
-            font-size: 14px;
-		}
     </style>
 </head>
 <body>
-    <header>
+<header>
 		<div class="header-left">
 			<nav>
 	      		<ul>
@@ -110,6 +121,7 @@
 				<li><a href="logout.php">Log Out</a> </li>
 		    </ul>
         </div>
+    <header>
         <h1>Pokémon Go Trading Page</h1>
     </header>
     
@@ -118,17 +130,20 @@
             <div class="col-md-3 sidebar">
                 <h2>Tradeable Pokémon</h2>
                 <ul>
-                    <!-- Example of 10 randomly generated Pokémon from the database -->
-                    <li>Pikachu</li>
-                    <li>Charmander</li>
-                    <li>Bulbasaur</li>
-                    <li>Squirtle</li>
-                    <li>Eevee</li>
-                    <li>Magikarp</li>
-                    <li>Snorlax</li>
-                    <li>Jigglypuff</li>
-                    <li>Growlithe</li>
-                    <li>Onix</li>
+                    <!-- Itterating through a list of pokemon in our database that are tradeable randomly generating 10 -->
+
+                    <?php
+                         if (!empty($pokemon_collection)){
+                             foreach ($pokemon_collection as $pokemon){
+                             Echo echo "<li>" . 
+                       htmlspecialchars($pokemon['PokemonName']) . "</li>";
+                        }
+                    } else {
+                        echo "<li>No Pokémon available for trade.</li>";
+                    }
+                             
+       ?>
+                   
                 </ul>
             </div>
             <div class="col-md-9 content">
