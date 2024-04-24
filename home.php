@@ -38,8 +38,8 @@
 
         .login-icon {
             position: absolute;
-            top: 10px; /* Adjust as needed */
-            left: 10px; /* Adjust as needed */
+            top: px; /* Adjust as needed */
+            right: 10px; /* Adjust as needed */
         }
     </style>
 </head>
