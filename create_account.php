@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
     // Prepare SQL statement to insert user data into the database
     $sql = "INSERT INTO login_info (username, password, email) VALUES (:username, :password, :email)";
-    $params = ['username' => $username, 'password' => $password, 'email' => $email];
+    $params = ['username' => $username, 'password' => $hashed_password, 'email' => $email];
     $stmt = $pdo->prepare($sql);
     $stmt->execute($params);
 
