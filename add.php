@@ -158,25 +158,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <h1>Add Pokémon!</h1>
     <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <label for="PokemonID">Pokédex ID:</label><br>
-        <input type="text" id="PokemonID" name="PokemonID" required><br><br>
+        <input type="text" id="pokedex_id" name="PokemonID" required><br><br>
 
         <label for="DateCaught">What date did you catch this pokemon? </label><br>
-        <input type="date" id="DateCaught" name="DateCaught" required><br><br>
+        <input type="date" id="date_caught" name="DateCaught" required><br><br>
 
         <label for="stats">Stats Multiplier:</label><br>
-        <input type="test" id="stats" name="stats" required><br><br>
+        <input type="test" id="stats_multiplier" name="stats" required><br><br>
 
         <label for="shiny">Is this pokemon shiny?</label><br>
-        <input type="checkbox" id="shiny" name="shiny" required><br><br>
+        <input type="checkbox" id="is_shiny" name="shiny" required><br><br>
 
         <label for="party">Is this pokemon in your party?</label><br>
-        <input type="checkbox" id="party" name="party" required><br><br>
+        <input type="checkbox" id="in_fighting_party" name="party" required><br><br>
 
         <label for="trade">Is this pokemon available to trade?</label><br>
-        <input type="checkbox" id="trade" name="trade" required><br><br>
+        <input type="checkbox" id="available_to_trade" name="trade" required><br><br>
 
         <label for="stars">How many stars?</label><br>
-        <select id="stars" name="stars" required>
+        <select id="stars" name="num_stars" required>
             <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
