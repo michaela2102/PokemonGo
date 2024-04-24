@@ -6,50 +6,57 @@
     <title>Pokémon Home Page</title>
     <style>
         body {
-        background-color: #1a1a1a; /* Dark background color */
-        color: #fff; /* Text color */
-        font-family: Arial, sans-serif; /* Font family */
-        margin: 0;
-        padding: 0;
+            background-color: #1a1a1a; /* Dark background color */
+            color: #fff; /* Text color */
+            font-family: Arial, sans-serif; /* Font family */
+            margin: 0;
+            padding: 0;
         }
 
         header {
-        background-color: #000; /* Header background color */
-        padding: 10px;
+            background-color: #000; /* Header background color */
+            padding: 10px;
+            display: flex; /* Use flexbox for layout */
+            justify-content: space-between; /* Align items to the left and right */
+            align-items: center; /* Align items vertically */
         }
 
         header nav ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
         }
 
         header nav ul li {
-        display: inline;
-        margin-right: 10px;
+            display: inline;
+            margin-right: 10px;
         }
 
         header nav ul li a {
-        color: #fff;
-        text-decoration: none;
+            color: #fff;
+            text-decoration: none;
         }
 
         h1 {
-        color: #ff4c4c; /* Pokémon GO red */
-        margin-bottom: 20px;
+            text-align: center;
+            color: #ff4c4c; /* Pokémon GO red */
+            margin-bottom: 20px;
         }
 
         hr {
-        width: 50%;
-        border-color: #ff4c4c; /* Pokémon GO red */
-        margin: 0; /* Remove default margin */
-        float: left;
+            width: 50%;
+            border-color: #ff4c4c; /* Pokémon GO red */
+            margin: 0; /* Remove default margin */
+            float: left;
         }
 
         .login-icon {
-            position: absolute;
-            top: 10px; /* Adjust as needed */
-            right: 10px; /* Adjust as needed */
+            margin-right: 10px; /* Add margin to separate from other nav items */
+        }
+
+        li {
+            margin-bottom: 10px;
+            text-align: center;
         }
     </style>
 </head>
