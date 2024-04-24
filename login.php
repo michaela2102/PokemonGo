@@ -52,15 +52,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <title>Log-in</title>
   <style>
     body {
-      background-color: #1a1a1a; /* Dark background color */
-      color: #fff; /* Text color */
+      background-color: #98C8DE; /* Dark background color */
+      color: #333; /* Text color */
       font-family: Arial, sans-serif; /* Font family */
       margin: 0;
       padding: 0;
     }
 
     header {
-      background-color: #000; /* Header background color */
+      background-color: #313167;
       padding: 10px;
     }
 
@@ -81,7 +81,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     h1 {
-      color: #ff4c4c; /* Pokémon GO red */
+      font-family: 'Pokemon', sans-serif;
+      color: #FFFFFF;
+      
       margin-bottom: 20px;
     }
 

@@ -84,9 +84,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       background-color: #333; /* Input background color */
       color: #fff; /* Input text color */
     }
+    input[type="email"] {
+      width: 50%;
+      padding: 10px;
+      margin: 5px 0;
+      border: none;
+      border-radius: 5px;
+      background-color: #333; /* Input background color */
+      color: #fff; /* Input text color */
+    }
 
     input[type="submit"] {
-      width: 5%;
+      width: 10%;
       padding: 10px;
       margin-top: 10px;
       border: none;
