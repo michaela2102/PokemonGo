@@ -10,32 +10,23 @@
 	 * @param string $id     The ID of the Pokémon to retrieve.
 	 * @return array|null    An associative array containing the Pokémon information, or null if no Pokémon is found.
 	 */
-	
+	function get_pokemon_collection(PDO $pdo, string $PlayerID) {
 
+		// SQL query to retrieve Pokémon information based on the Pokémon ID
+		$sql = "SELECT *
+				FROM hasPokemon
+				JOIN pokemon ON hasPokemon.PokemonID = pokemon.PokemonID
+				WHERE PlayerID = :PlayerID;";
+		
+		// Execute the SQL query using the pdo function and fetch the result
+		$pokemon_collection = pdo($pdo, $sql, ['PlayerID' => $PlayerID])->fetchAll();
 
-        // Function 10 to take 10 randomly generated tradeable pokemon from our database
-        function random_trades(PDO $pdo) {
-            // SQL query to selkect the 10 random pokemon from the database that are tradeable
-            $sql = "SELECT pokemon.PokemonID, PokemonName
-                   FROM hasPokemon 
-                   JOIN pokemon ON hasPokemon.PokemonID = pokemon.PokemonID
-                   WHERE hasPokemon.AvailableToTrade='Yes'
-                   ORDER BY RAND()
-                   LIMIT 10";
- // Prepare the query to prevent SQL injection
-    $stmt = $pdo->prepare($sql);
+		// Return the toy information (associative array)
+		return $pokemon_collection;
+	}
 
-    
-
-
-    // Execute the query
-    $stmt->execute();
-
-    // Fetch the result as an associative array
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);}
-
-    $random_trades = random_trades($pdo);
-
+	// Retrieve info about toys from the db using provided PDO connection
+	$pokemon_collection = get_pokemon_collection($pdo, '1');
 
 // Closing PHP tag  ?> -->
 
@@ -91,10 +82,18 @@
             border-radius: 5px;
             cursor: pointer;
         }
+        .header-left {
+			float: left;
+            font-size: 14px;
+		}
+		.header-right {
+			float: right;
+            font-size: 14px;
+		}
     </style>
 </head>
 <body>
-<header>
+    <header>
 		<div class="header-left">
 			<nav>
 	      		<ul>
@@ -111,7 +110,6 @@
 				<li><a href="logout.php">Log Out</a> </li>
 		    </ul>
         </div>
-    <header>
         <h1>Pokémon Go Trading Page</h1>
     </header>
     
@@ -120,20 +118,17 @@
             <div class="col-md-3 sidebar">
                 <h2>Tradeable Pokémon</h2>
                 <ul>
-                    <!-- Itterating through a list of pokemon in our database that are tradeable randomly generating 10 -->
-
-                    <?php
-                         /*if (!empty($random_trades)){
-                             for ($row = 0; $row < count($random_trades); $row++){
-                             echo $random_trades[$row]["PokemonID"] . "<li>" . 
-                       htmlspecialchars($random_trades[$row]['PokemonName']) . "</li>";
-                        }
-                    } else {
-                        echo "<li>No Pokémon available for trade.</li>";
-                    }
-                            */ 
-       ?>
-                   
+                    <!-- Example of 10 randomly generated Pokémon from the database -->
+                    <li>Pikachu</li>
+                    <li>Charmander</li>
+                    <li>Bulbasaur</li>
+                    <li>Squirtle</li>
+                    <li>Eevee</li>
+                    <li>Magikarp</li>
+                    <li>Snorlax</li>
+                    <li>Jigglypuff</li>
+                    <li>Growlithe</li>
+                    <li>Onix</li>
                 </ul>
             </div>
             <div class="col-md-9 content">
@@ -151,11 +146,11 @@
     <script>
         // Example list of Pokémon with user data (this would usually come from a database)
         const pokemonData = [
-            { name: 'Charmander', user: 'ashK', img: 'charmander.png', stats: 'Level 10, CP 500' },
-            { name: 'Bulbasaur', user: 'michaelaH', img: 'bulbasaur.png', stats: 'Level 15, CP 600' },
-            { name: 'Squirtle', user: 'AlexS', img: 'squirtle.png', stats: 'Level 20, CP 700' },
-            { name: 'Pikachu', user: 'xximjennyxx', img: 'pikachu.png', stats: 'Level 25, CP 800' },
-            { name: 'Eevee', user: 'PENNY', img: 'eevee.png', stats: 'Level 5, CP 300' },
+            { name: 'Charmander', user: 'Ash', img: 'charmander.png', stats: 'Level 10, CP 500' },
+            { name: 'Bulbasaur', user: 'Misty', img: 'bulbasaur.png', stats: 'Level 15, CP 600' },
+            { name: 'Squirtle', user: 'Brock', img: 'squirtle.png', stats: 'Level 20, CP 700' },
+            { name: 'Pikachu', user: 'Gary', img: 'pikachu.png', stats: 'Level 25, CP 800' },
+            { name: 'Eevee', user: 'Tracey', img: 'eevee.png', stats: 'Level 5, CP 300' },
         ];
 
         // Function to search Pokémon
