@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->execute($params);
 
     // Redirect to a success page or login page
-    header('Location: login.php');
+    header('Location: hasPokemon.php');
     exit;
 }
 ?>
@@ -167,13 +167,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="test" id="stats_multiplier" name="stats" required><br><br>
 
         <label for="shiny">Is this pokemon shiny?</label><br>
-        <input type="checkbox" id="is_shiny" name="shiny" required><br><br>
+        <input type="checkbox" id="is_shiny" name="is_shiny" value="yes"><br><br>
 
         <label for="party">Is this pokemon in your party?</label><br>
-        <input type="checkbox" id="in_fighting_party" name="party" required><br><br>
+        <input type="checkbox" id="in_fighting_party" name="in_fighting_party" value="yes"><br><br>
 
         <label for="trade">Is this pokemon available to trade?</label><br>
-        <input type="checkbox" id="available_to_trade" name="trade" required><br><br>
+        <input type="checkbox" id="available_to_trade" name="available_to_trade" value="yes"><br><br>
 
         <label for="stars">How many stars?</label><br>
         <select id="stars" name="num_stars" required>
