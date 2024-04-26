@@ -19,9 +19,9 @@ function get_player_id(PDO $pdo, string $username) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $PlayerID = get_player_id($pdo, $username);
-    $pokedex_id = $_POST['pokedex_id'];
-    $date_caught = $_POST['date_caught'];
-    $stats_multiplier = $_POST['stats_multiplier'];
+    $pokedex_id = $_POST['PokemonID'];
+    $date_caught = $_POST['DateCaught'];
+    $stats_multiplier = $_POST['stats'];
     $is_shiny = $_POST['is_shiny'];
     $in_fighting_party = $_POST['in_fighting_party'];
     $available_to_trade = $_POST['available_to_trade'];
@@ -29,19 +29,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $cp = $_POST['cp'];
     
     // Prepare SQL statement to insert user data into the database
-    $sql = "INSERT INTO hasPokemon (PlayerID, PokedexID, DateCaught, StatsMultiplier, IsShiny, InFightingParty, AvailableToTrade, NumStars, CP) VALUES (:player_id, :pokedex_id, :date_caught, :stats_multiplier, :is_shiny, :in_fighting_party, :available_to_trade, :num_stars, :cp)";
+    $sql = "INSERT INTO hasPokemon (PlayerID, PokemonID, DateCaught, StatsMultiplier, IsShiny, InFightingParty, AvailableToTrade, NumStars, CP) VALUES (:player_id, :pokedex_id, :date_caught, :stats_multiplier, :is_shiny, :in_fighting_party, :available_to_trade, :num_stars, :cp)";
     $params = [
-        'player_id' => $PlayerID,
-        'pokedex_id' => $pokedex_id,
-        'date_caught' => $date_caught,
-        'stats_multiplier' => $stats_multiplier,
+        'player_ID' => $PlayerID[0]["PlayerID"],
+        'pokedex_id' => intval($pokedex_id),
+        'date_caught' => NULL, // date('Y-m-d H:i:s', strtotime($date_caught . ' UTC')),
+        'stats_multiplier' => floatval($stats_multiplier),
         'is_shiny' => $is_shiny,
         'in_fighting_party' => $in_fighting_party,
         'available_to_trade' => $available_to_trade,
         'num_stars' => $num_stars,
-        'cp' => $cp
+        'cp' => intval($cp)
     ];
+    var_dump($params);
     $stmt = $pdo->prepare($sql);
+    var_dump($stmt);
     $stmt->execute($params);
 
     // Redirect to a success page or login page
@@ -167,13 +169,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="test" id="stats_multiplier" name="stats" required><br><br>
 
         <label for="shiny">Is this pokemon shiny?</label><br>
-        <input type="checkbox" id="is_shiny" name="is_shiny" value="yes"><br><br>
+        <input type="checkbox" id="is_shiny" name="is_shiny" value="Yes"><br><br>
 
         <label for="party">Is this pokemon in your party?</label><br>
-        <input type="checkbox" id="in_fighting_party" name="in_fighting_party" value="yes"><br><br>
+        <input type="checkbox" id="in_fighting_party" name="in_fighting_party" value="Yes"><br><br>
 
         <label for="trade">Is this pokemon available to trade?</label><br>
-        <input type="checkbox" id="available_to_trade" name="available_to_trade" value="yes"><br><br>
+        <input type="checkbox" id="available_to_trade" name="available_to_trade" value="Yes"><br><br>
 
         <label for="stars">How many stars?</label><br>
         <select id="stars" name="num_stars" required>

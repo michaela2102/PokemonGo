@@ -40,24 +40,76 @@
     <style>
         /* Basic CSS for styling */
         body {
-            font-family: Arial, sans-serif;
+            background: #98C8DE;
+            color: #333;
+            font-family: Arial, sans-serif; /* Font family */
+            margin: 0;
+            padding: 0;
         }
+
+        header {
+            background-color: #313167; /* Header background color */
+            padding: 10px;
+            display: flex; /* Use flexbox for layout */
+            justify-content: space-between; /* Align items to the left and right */
+            align-items: center; /* Align items vertically */
+        }
+        .header-right {
+        float: right; /* Align to the right */
+        margin-right: 10px; /* Add some margin for spacing */
+        }
+        header nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        header nav ul li {
+            color: #313167;
+            display: inline;
+            margin-right: 10px;
+        }
+
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
         h1 {
             text-align: center;
+            font-family: 'Pokemon', sans-serif;
+            color: #FFFFFF;
+            margin-bottom: 20px;
         }
         h2 {
+            text-align: center;
+            font-family: 'Pokemon', sans-serif;
+            color: #FFFFFF;
+            margin-bottom: 20px;
+        }
+        hr {
+            width: 50%;
+            border-color: #ffffff; /* Pokémon GO red */
+            margin: 0; /* Remove default margin */
+            float: left;
+        }
+
+        .login-icon {
+            margin-right: 10px; /* Add margin to separate from other nav items */
+        }
+
+        li {
+            margin-bottom: 10px;
             text-align: center;
         }
         div {
             text-align: center;
         }
-        ul {
-            list-style-type: none;
-            padding: 0;
+        img.center {
+            display: block;
+            margin: 0 auto; /* Centers the image horizontally */
         }
-        li {
-            margin-bottom: 10px;
-        }
+
         img.center {
             display: block;
             margin: 0 auto; /* Centers the image horizontally */
@@ -83,7 +135,7 @@
 
 		<div class="header-right">
 		    <ul>
-                <li><a href="pokedex.php">Pokédex</a></li>
+                <li><a href="login.php"> <img src="images/login.png" alt="Login Icon" width= "130" height="30"></a></li>
 		    </ul>
 		</div>
 	</header>

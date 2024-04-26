@@ -1,0 +1,27 @@
+version: '3.8'   
+services:
+  web:
+    build: .
+    ports:
+      - "80:80"    
+    depends_on:
+      - db   
+    volumes:
+      - ./:/var/www/html    #this line maps the content of ./html in your pc to the /var/www/html of the container
+  db:
+    image: mysql:5.7    #check the mysql version you need for your project
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: 'Hazel061514!'    #you can change the mysql root password here
+      MYSQL_DATABASE: michaela_pokemon_database    #you can change the database name here
+    volumes:
+      - ./mysql_data:/var/lib/mysql    #this line maps the content of ./mysql_data in your pc to the /var/lib/mysql of the container
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8080:80"    #this line maps your pc port to the container port
+    depends_on:
+      - db    #this line links this container to the db container
+    environment:
+      PMA_HOST: db

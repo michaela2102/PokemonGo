@@ -12,6 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "INSERT INTO login_info (username, password, email) VALUES (:username, :password, :email)";
     $params = ['username' => $username, 'password' => $hashed_password, 'email' => $email];
     $stmt = $pdo->prepare($sql);
+    var_dump($stmt);
     $stmt->execute($params);
 
     // Redirect to a success page or login page
@@ -122,7 +123,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <div></div>
       <nav>
         <ul>
-          <li><a href="home.php">Home Page</a></li>
+          <li><a href="home.php">Home</a></li>
         </ul>
       </nav>
     </div>

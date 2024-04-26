@@ -60,18 +60,29 @@
             margin-bottom: 10px;
             text-align: center;
         }
+        .header-right {
+			float: right;
+		}
+
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li>    
-                    <a href="login.php" class="login-icon"> <img src="images/login.png" alt="Login Icon" width= "10%" height="10%"></a><br>
-                </li>
-            </ul>
-        </nav>
-    </header>
+<header>
+		<div class="header-left">
+			<nav>
+	      		<ul>
+	      			<li></li>
+					<li></li>
+			    </ul>
+			</nav>
+		</div>
+
+		<div class="header-right">
+		    <ul>
+                <li><a href="login.php"> <img src="images/login.png" alt="Login Icon" width= "130" height="30"></a></li>
+		    </ul>
+		</div>
+	</header>
 
     <h1>Welcome to our PokémonGo Web Application!</h1>
 
