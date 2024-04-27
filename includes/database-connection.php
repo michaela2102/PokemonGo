@@ -3,12 +3,12 @@
 
 $type     = 'mysql';                             // Type of database
 $server   = 'rhody.dev';                    // Server the database is on
-$db       = 'michaela_pokemon_database';     // Name of the database
+$db       = 'mwentwor_PokemonGo';     // Name of the database
 $port     = '3306';                           // Port is usually 3306 in Hostgator
 $charset  = 'utf8mb4';                       // UTF-8 encoding using 4 bytes of data per char
 
-$username = 'michaelahealy';     // Enter YOUR cPanel username and user here
-$password = 'Hazel061514!';           // Enter YOUR user password here
+$username = 'mwentworth14';     // Enter YOUR cPanel username and user here
+$password = 'csc_100751980';            // Enter YOUR user password here
 
 
 // DO *NOT* CHANGE ANYTHING BENEATH THIS LINE
