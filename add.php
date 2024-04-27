@@ -170,12 +170,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="test" id="stats_multiplier" name="stats" required><br><br>
 
         <label for="shiny">Is this pokemon shiny?</label><br>
+        <input type="hidden" name="is_shiny" value="No">
         <input type="checkbox" id="is_shiny" name="is_shiny" value="Yes"><br><br>
 
         <label for="party">Is this pokemon in your party?</label><br>
+        <input type="hidden" name="in_fighting_party" value="No">
         <input type="checkbox" id="in_fighting_party" name="in_fighting_party" value="Yes"><br><br>
 
         <label for="trade">Is this pokemon available to trade?</label><br>
+        <input type="hidden" name="available_to_trade" value="No">
         <input type="checkbox" id="available_to_trade" name="available_to_trade" value="Yes"><br><br>
 
         <label for="stars">How many stars?</label><br>
