@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Prepare SQL statement to insert user data into the database
     $sql = "INSERT INTO hasPokemon (PlayerID, PokemonID, DateCaught, StatsMultiplier, IsShiny, InFightingParty, AvailableToTrade, NumStars, CP) VALUES (:player_id, :pokedex_id, :date_caught, :stats_multiplier, :is_shiny, :in_fighting_party, :available_to_trade, :num_stars, :cp)";
     $params = [
-        'player_ID' => $PlayerID[0]["PlayerID"],
+        'player_id' => $PlayerID[0]["PlayerID"],
         'pokedex_id' => intval($pokedex_id),
         'date_caught' => NULL, // date('Y-m-d H:i:s', strtotime($date_caught . ' UTC')),
         'stats_multiplier' => floatval($stats_multiplier),
@@ -48,6 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Redirect to a success page or login page
     header('Location: hasPokemon.php');
+    print "<script>window.location = 'hasPokemon.php'</script>";
     exit;
 }
 ?>
