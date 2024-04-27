@@ -1,34 +1,43 @@
-<!-- <?php   										// Opening PHP tag
-	
+<?php   										// Opening PHP tag
 	// Include the database connection script
 	require 'includes/database-connection.php';
-
-	/*
-	 * Retrieve Pokémon information from the database based on the Pokémon ID.
-	 * 
-	 * @param PDO $pdo       An instance of the PDO class.
-	 * @param string $id     The ID of the Pokémon to retrieve.
-	 * @return array|null    An associative array containing the Pokémon information, or null if no Pokémon is found.
-	 */
-	function get_pokemon_collection(PDO $pdo, string $PlayerID) {
+    $request = "Yes";
+	function get_pokemon_collection(PDO $pdo, string $request) {
 
 		// SQL query to retrieve Pokémon information based on the Pokémon ID
-		$sql = "SELECT *
-				FROM hasPokemon
+		$sql = "SELECT * 
+                FROM hasPokemon 
 				JOIN pokemon ON hasPokemon.PokemonID = pokemon.PokemonID
-				WHERE PlayerID = :PlayerID;";
+				JOIN player ON hasPokemon.PlayerID = player.PlayerID
+                WHERE AvailableToTrade = :request;";
 		
 		// Execute the SQL query using the pdo function and fetch the result
-		$pokemon_collection = pdo($pdo, $sql, ['PlayerID' => $PlayerID])->fetchAll();
+		$pokemon_collection = pdo($pdo, $sql, ['request' => $request])->fetchAll();
 
 		// Return the toy information (associative array)
 		return $pokemon_collection;
 	}
-
 	// Retrieve info about toys from the db using provided PDO connection
-	$pokemon_collection = get_pokemon_collection($pdo, '1');
+	$pokemon_collection = get_pokemon_collection($pdo, $request);
 
-// Closing PHP tag  ?> -->
+	function filter_pokemon($pokemon_collection, $search) {
+		// Array to store the filtered Pokémon
+		$filtered_collection = array();
+
+		// Iterate over each Pokémon in the collection
+		foreach ($pokemon_collection as $pokemon) {
+			// Check if the Pokémon matches the search criteria
+			if (stripos($pokemon['Name'], $search) !== false) {
+				// Add the Pokémon to the filtered array
+				$filtered_collection[] = $pokemon;
+			}
+		}
+
+		// Return the filtered Pokémon
+		return $filtered_collection;
+	}
+
+?> 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +46,6 @@
     <title>Pokémon Go Trading Page</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-
         /* Pokémon-themed colors */
         body {
             background: #98C8DE;
@@ -126,54 +134,70 @@
                 </ul>
             </div>
             <div class="col-md-9 content">
-                <div class="form-group">
-                    <label for="search">Search for Tradeable Pokémon:</label>
-                    <input type="text" id="search" class="form-control" placeholder="Type Pokémon name..." onkeyup="searchPokemon()">
-                </div>
+				<form action="trading_page.php" method="get">
+					<input id="search" class="form-control"  type="text" name="search" placeholder="Search for a Pokémon!">
+					<input type="submit" value="Search">
+				</form>
                 <div id="search-results">
                     <!-- Search results will be displayed here -->
                 </div>
+
+				<?php
+						// Check if a search query is submitted
+		if (isset($_GET['search'])) {
+			// Get the search query from the URL parameter
+			$search = $_GET['search'];
+
+			// Filter the Pokémon based on the search query
+			$filtered_collection = filter_pokemon($pokemon_collection, $search);
+		} else {
+			// If no search query is submitted, display all Pokémon
+			$filtered_collection = $pokemon_collection;
+		}
+		for($row = 0; $row < count($filtered_collection); $row++) {
+			$PokemonID = $pokemon_collection[$row]['PokemonID'];
+			$PokemonName = $pokemon_collection[$row]['Name'];
+			$Trainer = $pokemon_collection[$row]['Username'];
+			$image_src = "https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/" . str_pad($PokemonID, 3, '0', STR_PAD_LEFT) . ".png";
+			$CP = $pokemon_collection[$row]['CP'];    
+			$Stars = $pokemon_collection[$row]['NumStars'];
+			$Trade = $pokemon_collection[$row]['AvailableToTrade'];
+			$Shiny = $pokemon_collection[$row]['IsShiny'];
+			// $Type = $pokemon_collection[$row]['Type'];
+	?>
+
+		<div class="pokemon">
+			<!-- Create a hyperlink to poke.php page with PokemonID as parameter -->
+			<a href="poke.php?PokemonID=<?= $PokemonID ?>">
+				<!-- Display image of Pokémon with its name as alt text -->
+				<img src="<?= $image_src ?>" alt="<?= $PokemonName ?>">
+			</a>
+			<div>
+				<!-- Display ID and Name of Pokémon -->
+				<strong> <?= $PokemonName ?></strong> #<?= $PokemonID ?>:</br>
+				Trainer: <?= $Trainer ?> </br>
+
+				<!-- Display CP of Pokémon -->
+				CP: <?= $CP ?>  
+
+				<!-- Display #Stars of Pokémon -->
+				Stars: <?= $Stars ?>
+
+				<!-- Display Shinyness of Pokémon -->
+				Shiny: <?= $Shiny ?>
+
+				<button class="chat-button">Chat</button>
+			</div>
+		</div>
+
+	<?php
+	}
+	?>
             </div>
         </div>
     </div>
 
-    <script>
-        // Example list of Pokémon with user data (this would usually come from a database)
-        const pokemonData = [
-            { name: 'Charmander', user: 'ashK', img: 'https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/004.png', stats: 'Level 10, CP 500' },
-            { name: 'Bulbasaur', user: 'michaelaH', img: 'https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/001.png', stats: 'Level 15, CP 600' },
-            { name: 'Squirtle', user: 'AlexS', img: 'https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/007.png', stats: 'Level 20, CP 700' },
-            { name: 'Pikachu', user: 'xximjennyxx', img: 'https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/025.png', stats: 'Level 25, CP 800' },
-            { name: 'Eevee', user: 'PENNY', img: 'https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/133.png', stats: 'Level 5, CP 300' },
-        ];
 
-        // Function to search Pokémon
-        function searchPokemon() {
-            const searchQuery = document.getElementById('search').value.toLowerCase();
-            const resultsDiv = document.getElementById('search-results');
-            resultsDiv.innerHTML = ''; // Clear previous results
 
-            const filteredPokemon = pokemonData.filter(p => p.name.toLowerCase().includes(searchQuery));
-
-            if (filteredPokemon.length > 0) {
-                filteredPokemon.forEach(pokemon => {
-                    const pokemonElement = document.createElement('div');
-                    pokemonElement.className = 'pokemon';
-                    pokemonElement.innerHTML = `
-                        <img src="${pokemon.img}" alt="${pokemon.name}">
-                        <div>
-                            <strong>${pokemon.name}</strong><br>
-                            User: ${pokemon.user}<br>
-                            Stats: ${pokemon.stats}
-                        </div>
-                        <button class="chat-button">Chat</button>
-                    `;
-                    resultsDiv.appendChild(pokemonElement);
-                });
-            } else {
-                resultsDiv.innerHTML = '<p>No tradeable Pokémon found.</p>';
-            }
-        }
-    </script>
 </body>
 </html>
