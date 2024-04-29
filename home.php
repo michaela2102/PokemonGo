@@ -76,7 +76,7 @@
 		<nav>
 	      	<ul>
 	      		<li></li>
-                    <li><img src="images/poke_ball.png" alt="Pokéball Icon" width= "120" height="120"></a></li>
+                    <li><img src="images/poke_ball.png" alt="Pokéball Icon" width= "90" height="90"></a></li>
 				<li></li>
 			</ul>
 		</nav>
