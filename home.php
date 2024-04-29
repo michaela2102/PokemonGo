@@ -45,7 +45,7 @@
             font-family: gill sans, sans-serif;
             color: #FFFFFF;
             margin-bottom: 20px;
-            font-size: 24px;
+            font-size: 38px;
         }
 
         hr {
