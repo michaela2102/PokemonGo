@@ -8,7 +8,7 @@
         body {
             background: #98C8DE;
             color: #333;
-            font-family: Arial, sans-serif; /* Font family */
+            font-family: gill sans, sans-serif; /* Font family */
             margin: 0;
             padding: 0;
         }
@@ -40,7 +40,7 @@
 
         h1 {
             text-align: center;
-            font-family: 'Pokemon', sans-serif;
+            font-family: gill sans, sans-serif;
             color: #FFFFFF;
             margin-bottom: 20px;
         }
