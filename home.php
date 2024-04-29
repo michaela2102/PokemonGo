@@ -94,9 +94,9 @@
     <center>Here you can log in to your account, or create an account if you don't already have one.</center><br>
     <center>Or, view the leaderboard of PokémonGo players and cheer on your friends!</center><br>
     <center>Once you log in, you can view your current Pokémon.</center><br>
-    <li><a href="create_account.php">New user? Create an account</a><img src="images/pikachu.png" alt="Pikachu Icon" width= "50" height="50"></li><br>
-    <li><a href="leaderboard.php">View the leaderboard</a><img src="images/ditto.png" alt="Ditto Icon" width= "50" height="50"></li><br>
-    <li><a href="trading_page.php">View the pokemon trading page</a><img src="images/charmander.png" alt="Charmander Icon" width= "50" height="50"></li><br>
+    <li><a href="create_account.php">New user? Create an account</a><img src="images/pika.png" alt="Pikachu Icon" width= "60" height="80"></li><br>
+    <li><a href="leaderboard.php">View the leaderboard</a><img src="images/dit.png" alt="Ditto Icon" width= "50" height="50"></li><br>
+    <li><a href="trading_page.php">View the pokemon trading page</a><img src="images/char.png" alt="Charmander Icon" width= "50" height="50"></li><br>
     
     <center>Pokémon Go Community Web Application created and designed by Group 5</center>
     
