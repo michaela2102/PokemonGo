@@ -11,6 +11,7 @@
             font-family: gill sans, sans-serif; /* Font family */
             margin: 0;
             padding: 0;
+            font-size: 18px;
         }
 
         header {
@@ -60,6 +61,7 @@
             margin-bottom: 10px;
             text-align: center;
         }
+
         .header-right {
 			float: right;
 		}
@@ -68,15 +70,6 @@
 </head>
 <body>
 <header>
-		<div class="header-left">
-			<nav>
-	      		<ul>
-	      			<li></li>
-					<li></li>
-			    </ul>
-			</nav>
-		</div>
-
 		<div class="header-right">
 		    <ul>
                 <li><a href="login.php"> <img src="images/login.png" alt="Login Icon" width= "130" height="30"></a></li>
@@ -84,7 +77,7 @@
 		</div>
 	</header>
 
-    <h1>Welcome to our PokémonGo Web Application!</h1>
+    <h1>Welcome to our Pokémon Go Community Web Application!</h1>
 
     <center>Here you can log in to your account, or create an account if you don't already have one.</center><br>
     <center>Or, view the leaderboard of PokémonGo players and cheer on your friends!</center><br>
