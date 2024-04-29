@@ -12,6 +12,7 @@
             margin: 0;
             padding: 0;
             font-size: 16px;
+            line-height: 1.5; /* Add line-height property to increase spacing between lines */
         }
 
         header {
@@ -44,6 +45,7 @@
             font-family: gill sans, sans-serif;
             color: #FFFFFF;
             margin-bottom: 20px;
+            font-size: 24px;
         }
 
         hr {
