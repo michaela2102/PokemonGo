@@ -11,7 +11,7 @@
             font-family: gill sans, sans-serif; /* Font family */
             margin: 0;
             padding: 0;
-            font-size: 18px;
+            font-size: 16px;
         }
 
         header {
@@ -70,6 +70,15 @@
 </head>
 <body>
 <header>
+		<div class="header-left">
+			<nav>
+	      		<ul>
+	      			<li></li>
+					<li></li>
+			    </ul>
+			</nav>
+		</div>
+
 		<div class="header-right">
 		    <ul>
                 <li><a href="login.php"> <img src="images/login.png" alt="Login Icon" width= "130" height="30"></a></li>
