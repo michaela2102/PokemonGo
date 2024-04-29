@@ -33,9 +33,6 @@
 	// Function to filter the Pokémon based on user input
 	function filter_pokemon($pokedex_info, $search) {
 
-		// Debugging code
-		echo "Search query: " . $search . "<br>";
-
 		// Array to store the filtered Pokémon
 		$filtered_pokemon = array();
         
@@ -70,8 +67,6 @@
 
 		// Remove any duplicate Pokémon from the filtered Pokémon array
 		$filtered_pokemon = array_unique($filtered_pokemon, SORT_REGULAR);
-
-		echo "Filtered Pokémon: " . $filtered_pokemon . "<br>";
 
 		// Return the filtered Pokémon
 		return $filtered_pokemon;
