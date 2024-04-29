@@ -42,7 +42,7 @@
         body {
             background: #98C8DE;
             color: #333;
-            font-family: Arial, sans-serif; /* Font family */
+            font-family: gill sans, sans-serif; /* Font family */
             margin: 0;
             padding: 0;
         }
@@ -54,10 +54,12 @@
             justify-content: space-between; /* Align items to the left and right */
             align-items: center; /* Align items vertically */
         }
+
         .header-right {
         float: right; /* Align to the right */
         margin-right: 10px; /* Add some margin for spacing */
         }
+
         header nav ul {
             list-style-type: none;
             padding: 0;
@@ -77,13 +79,13 @@
 
         h1 {
             text-align: center;
-            font-family: 'Pokemon', sans-serif;
+            font-family: gill sans, sans-serif;
             color: #FFFFFF;
             margin-bottom: 20px;
         }
         h2 {
             text-align: center;
-            font-family: 'Pokemon', sans-serif;
+            font-family: gill sans, sans-serif;
             color: #FFFFFF;
             margin-bottom: 20px;
         }
@@ -102,9 +104,11 @@
             margin-bottom: 10px;
             text-align: center;
         }
+
         div {
             text-align: center;
         }
+
         img.center {
             display: block;
             margin: 0 auto; /* Centers the image horizontally */
@@ -114,9 +118,11 @@
             display: block;
             margin: 0 auto; /* Centers the image horizontally */
         }
+
         .header-left {
 			float: left;
 		}
+
 		.header-right {
 			float: right;
 		}
