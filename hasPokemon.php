@@ -2,93 +2,93 @@
 	session_start();
 	require 'includes/database-connection.php';
 
-    $username = $_SESSION['username'];
-    function get_player_id(PDO $pdo, string $username) {
+    // $username = $_SESSION['username'];
+    // function get_player_id(PDO $pdo, string $username) {
 
-		// SQL query to retrieve PlayerID based on the username
-		$sql = "SELECT PlayerID
-				FROM player
-				WHERE Username = :username;";
+	// 	// SQL query to retrieve PlayerID based on the username
+	// 	$sql = "SELECT PlayerID
+	// 			FROM player
+	// 			WHERE Username = :username;";
 		
-		// Execute the SQL query using the pdo function and fetch the result
-		$PlayerID = pdo($pdo, $sql, ['username' => $username])->fetchAll();
+	// 	// Execute the SQL query using the pdo function and fetch the result
+	// 	$PlayerID = pdo($pdo, $sql, ['username' => $username])->fetchAll();
 
-		// Return the Pokémon collection (associative array)
-		return $PlayerID;
-	}
+	// 	// Return the Pokémon collection (associative array)
+	// 	return $PlayerID;
+	// }
 
-    function get_pokemon_collection(PDO $pdo, string $PlayerID) {
+    // function get_pokemon_collection(PDO $pdo, string $PlayerID) {
 
-		// SQL query to retrieve Pokémon collection based on the PlayerID
-		$sql = "SELECT *
-				FROM hasPokemon
-				JOIN pokemon ON hasPokemon.PokemonID = pokemon.PokemonID
-				JOIN pokemonType ON pokemon.PokemonID = pokemonType.PokemonID
-				WHERE PlayerID = :PlayerID
-				GROUP BY pokemon.PokemonID;";
+	// 	// SQL query to retrieve Pokémon collection based on the PlayerID
+	// 	$sql = "SELECT *
+	// 			FROM hasPokemon
+	// 			JOIN pokemon ON hasPokemon.PokemonID = pokemon.PokemonID
+	// 			JOIN pokemonType ON pokemon.PokemonID = pokemonType.PokemonID
+	// 			WHERE PlayerID = :PlayerID
+	// 			GROUP BY pokemon.PokemonID;";
 		
-		// Execute the SQL query using the pdo function and fetch the result
-		$pokemon_collection = pdo($pdo, $sql, ['PlayerID' => $PlayerID])->fetchAll();
+	// 	// Execute the SQL query using the pdo function and fetch the result
+	// 	$pokemon_collection = pdo($pdo, $sql, ['PlayerID' => $PlayerID])->fetchAll();
 
-		// Return the toy information (associative array)
-		return $pokemon_collection;
-	}
+	// 	// Return the toy information (associative array)
+	// 	return $pokemon_collection;
+	// }
 
-    $PlayerID = get_player_id($pdo, $username);
-    $pokemon_collection = get_pokemon_collection($pdo, strval($PlayerID[0]["PlayerID"]));
+    // $PlayerID = get_player_id($pdo, $username);
+    // $pokemon_collection = get_pokemon_collection($pdo, strval($PlayerID[0]["PlayerID"]));
 
-		// Function to filter the Pokémon based on user input
-		function filter_pokemon($pokemon_collection, $search) {
-			// Array to store the filtered Pokémon
-			$filtered_collection = array();
+	// 	// Function to filter the Pokémon based on user input
+	// 	function filter_pokemon($pokemon_collection, $search) {
+	// 		// Array to store the filtered Pokémon
+	// 		$filtered_collection = array();
 	        
-	        if ($search == "Legendary" || $search == "legendary"){
-	            $legend = "Sí";
-	        }
-	        else if ($search == "Not Legendary" || $search == "not legendary" || $search == "Not legendary"){
-	            $legend = "No";
-	        }
-			else {
-				$legend = "fillerstring";
-			}
+	//         if ($search == "Legendary" || $search == "legendary"){
+	//             $legend = "Sí";
+	//         }
+	//         else if ($search == "Not Legendary" || $search == "not legendary" || $search == "Not legendary"){
+	//             $legend = "No";
+	//         }
+	// 		else {
+	// 			$legend = "fillerstring";
+	// 		}
 
-			if ($search == "Shiny" || $search == "shiny"){
-				$shiny = "Yes";
-			}
-			else if ($search == "Not Shiny" || $search == "not shiny" || $search == "Not shiny"){
-				$shiny = "No";
-			}
-			else {
-				$shiny = "fillerstring";
-			}
+	// 		if ($search == "Shiny" || $search == "shiny"){
+	// 			$shiny = "Yes";
+	// 		}
+	// 		else if ($search == "Not Shiny" || $search == "not shiny" || $search == "Not shiny"){
+	// 			$shiny = "No";
+	// 		}
+	// 		else {
+	// 			$shiny = "fillerstring";
+	// 		}
 
-			// Iterate over each Pokémon in the collection
-			foreach ($pokemon_collection as $pokemon) {
+	// 		// Iterate over each Pokémon in the collection
+	// 		foreach ($pokemon_collection as $pokemon) {
 
-				$id = ltrim($pokemon['PokemonID'], '0');
-				$gen = "Generation " . $pokemon['Generation'];
-				$stars = $pokemon['NumStars'] . " Stars";
+	// 			$id = ltrim($pokemon['PokemonID'], '0');
+	// 			$gen = "Generation " . $pokemon['Generation'];
+	// 			$stars = $pokemon['NumStars'] . " Stars";
 
-				// Check if the Pokémon matches the search criteria
-				if (stripos($pokemon['Name'], $search) !== false ||
-					stripos($id, $search) !== false ||
-	                stripos($gen, $search) !== false ||
-					stripos($stars, $search) !== false ||
-	                stripos($pokemon['Type'], $search) !== false ||
-	                stripos($pokemon['Legendary'], $legend) !== false ||
-					stripos($pokemon['IsShiny'], $shiny) !== false
-				) {
-					// Add the Pokémon to the filtered array
-					$filtered_collection[] = $pokemon;
-				}
-			}
+	// 			// Check if the Pokémon matches the search criteria
+	// 			if (stripos($pokemon['Name'], $search) !== false ||
+	// 				stripos($id, $search) !== false ||
+	//                 stripos($gen, $search) !== false ||
+	// 				stripos($stars, $search) !== false ||
+	//                 stripos($pokemon['Type'], $search) !== false ||
+	//                 stripos($pokemon['Legendary'], $legend) !== false ||
+	// 				stripos($pokemon['IsShiny'], $shiny) !== false
+	// 			) {
+	// 				// Add the Pokémon to the filtered array
+	// 				$filtered_collection[] = $pokemon;
+	// 			}
+	// 		}
 
-			// Remove any duplicate Pokémon from the filtered Pokémon array
-			$filtered_collection = array_unique($filtered_collection, SORT_REGULAR);
+	// 		// Remove any duplicate Pokémon from the filtered Pokémon array
+	// 		$filtered_collection = array_unique($filtered_collection, SORT_REGULAR);
 
-			// Return the filtered Pokémon
-			return $filtered_collection;
-		}
+	// 		// Return the filtered Pokémon
+	// 		return $filtered_collection;
+	// 	}
 
 ?> 
 
