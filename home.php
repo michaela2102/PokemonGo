@@ -11,7 +11,7 @@
             font-family: gill sans, sans-serif; /* Font family */
             margin: 0;
             padding: 0;
-            font-size: 18px;
+            font-size: 16px;
             line-height: 2; /* Add line-height property to increase spacing between lines */
             font-weight: bold; /* Make the font bold */
         }
