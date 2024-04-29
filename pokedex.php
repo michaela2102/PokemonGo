@@ -38,6 +38,8 @@
 
 		// Array to store the filtered Pokémon
 		$filtered_pokemon = array();
+
+		$legend = "";
         
         if ($search == "Legendary"){
             $legend = "Sí";
