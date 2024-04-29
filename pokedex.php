@@ -199,14 +199,14 @@
 			// Get the search query from the URL parameter
 			$search = $_GET['search'];
 
+			// Filter the Pokémon based on the search query
+			$filtered_pokemon = filter_pokemon($pokedex_info, $search);
+
 			// Debugging code
 			echo "Search query: " . $search . "<br>";
 			echo "Filtered Pokémon: ";
 			print_r($filtered_pokemon);
 			echo "<br>";
-
-			// Filter the Pokémon based on the search query
-			$filtered_pokemon = filter_pokemon($pokedex_info, $search);
 		} else {
 			// If no search query is submitted, display all Pokémon
 			$filtered_pokemon = $pokedex_info;
