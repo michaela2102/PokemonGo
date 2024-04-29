@@ -38,8 +38,6 @@
 
 		// Array to store the filtered Pokémon
 		$filtered_pokemon = array();
-
-		$legend = "";
         
         if ($search == "Legendary"){
             $legend = "Sí";
@@ -48,7 +46,7 @@
             $legend = "No";
         }
 		else {
-			$legend = "";
+			$legend = "fillerstring";
 		}
 
 		// Iterate over each Pokémon in the collection
@@ -79,9 +77,6 @@
 				$filtered_pokemon[] = $pokemon;
 			}
 			if (stripos($pokemon['Legendary'], $legend) !== false){
-				echo "Legend: " . $legend . "<br>";
-				echo "Real Legend: " . $pokemon['Legendary'] . "<br>";
-				echo "LEGEND matches" . "<br>";
 				// Add the Pokémon to the filtered array
 				$filtered_pokemon[] = $pokemon;
 			}
