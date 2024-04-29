@@ -53,6 +53,7 @@
 		foreach ($pokedex_info as $pokemon) {
 
 			$id = ltrim($pokemon['PokemonID'], '0');
+			echo "ID: " . $id . "<br>";
 			$gen = "Generation " . $pokemon['Generation'];
 
 			// Check if the Pokémon matches the search criteria
