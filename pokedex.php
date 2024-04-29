@@ -54,15 +54,30 @@
 
 			$id = ltrim($pokemon['PokemonID'], '0');
 			$gen = "Generation " . $pokemon['Generation'];
-			
+
 			// Check if the Pokémon matches the search criteria
-			if (stripos($pokemon['Name'], $search) !== false ||
-				stripos($id, $search) !== false ||
-                stripos($gen, $search) !== false ||
-                stripos($pokemon['Type'], $search) !== false ||
-                stripos($pokemon['Legendary'], $legend) !== false
-			) {
-				echo "Hi!!!" . "<br>";
+			if (stripos($pokemon['Name'], $search) !== false) {
+				echo "NAME matches" . "<br>";
+				// Add the Pokémon to the filtered array
+				$filtered_pokemon[] = $pokemon;
+			}
+			if (stripos($id, $search) !== false){
+				echo "ID matches" . "<br>";
+				// Add the Pokémon to the filtered array
+				$filtered_pokemon[] = $pokemon;
+			}
+			if (stripos($gen, $search) !== false){
+				echo "GEN matches" . "<br>";
+				// Add the Pokémon to the filtered array
+				$filtered_pokemon[] = $pokemon;
+			}
+			if (stripos($pokemon['Type'], $search) !== false){
+				echo "TYPE matches" . "<br>";
+				// Add the Pokémon to the filtered array
+				$filtered_pokemon[] = $pokemon;
+			}
+			if (stripos($pokemon['Legendary'], $legend) !== false){
+				echo "LEGEND matches" . "<br>";
 				// Add the Pokémon to the filtered array
 				$filtered_pokemon[] = $pokemon;
 			}
