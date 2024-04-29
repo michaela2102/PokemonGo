@@ -40,7 +40,7 @@
             text-decoration: none;
         }
 
-        h1 {
+        body h1 {
             text-align: center;
             font-family: gill sans, sans-serif;
             color: #FFFFFF;
