@@ -40,7 +40,7 @@
             text-decoration: none;
         }
 
-        body h1 {
+        h1 {
             text-align: center;
             font-family: gill sans, sans-serif;
             color: #FFFFFF;
@@ -70,25 +70,24 @@
 
     </style>
 </head>
-<body>
 <header>
-		<div class="header-left">
-			<nav>
-	      		<ul>
-	      			<li></li>
-					<li></li>
-			    </ul>
-			</nav>
-		</div>
+	<div class="header-left">
+		<nav>
+	      	<ul>
+	      		<li></li>
+				<li></li>
+			</ul>
+		</nav>
+	</div>
 
-		<div class="header-right">
-		    <ul>
-                <li><a href="login.php"> <img src="images/login.png" alt="Login Icon" width= "130" height="30"></a></li>
-		    </ul>
-		</div>
-	</header>
-
-    <h1>Welcome to our Pokémon Go Community Web Application!</h1>
+	<div class="header-right">
+		<ul>
+            <li><a href="login.php"> <img src="images/login.png" alt="Login Icon" width= "130" height="30"></a></li>
+		</ul>
+	</div>
+</header>
+<h1>Welcome to our Pokémon Go Community Web Application!</h1>
+<body>
 
     <center>Here you can log in to your account, or create an account if you don't already have one.</center><br>
     <center>Or, view the leaderboard of PokémonGo players and cheer on your friends!</center><br>
@@ -98,7 +97,6 @@
     <li><a href="trading_page.php">View the pokemon trading page</a></li> <br>
     
     <center>Pokémon Go Community Web Application created and designed by Group 5</center>
-
     
 </body>
 </html>
