@@ -49,7 +49,7 @@
 	            $legend = "No";
 	        }
 			else {
-				$legend = "";
+				$legend = "fillerstring";
 			}
 
 			if ($search == "Shiny" || $search == "shiny"){
@@ -59,7 +59,7 @@
 				$shiny = "No";
 			}
 			else {
-				$shiny = "";
+				$shiny = "fillerstring";
 			}
 
 			// Iterate over each Pokémon in the collection
