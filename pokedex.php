@@ -46,6 +46,8 @@
             $legend = "No";
         }
 		else {
+			// Since stripos says a substring of a string "matches",
+			// we need to make sure that the search string is not a substring of the string
 			$legend = "fillerstring";
 		}
 
@@ -56,27 +58,11 @@
 			$gen = "Generation " . $pokemon['Generation'];
 
 			// Check if the Pokémon matches the search criteria
-			if (stripos($pokemon['Name'], $search) !== false) {
-				echo "NAME matches" . "<br>";
-				// Add the Pokémon to the filtered array
-				$filtered_pokemon[] = $pokemon;
-			}
-			if (stripos($id, $search) !== false){
-				echo "ID matches" . "<br>";
-				// Add the Pokémon to the filtered array
-				$filtered_pokemon[] = $pokemon;
-			}
-			if (stripos($gen, $search) !== false){
-				echo "GEN matches" . "<br>";
-				// Add the Pokémon to the filtered array
-				$filtered_pokemon[] = $pokemon;
-			}
-			if (stripos($pokemon['Type'], $search) !== false){
-				echo "TYPE matches" . "<br>";
-				// Add the Pokémon to the filtered array
-				$filtered_pokemon[] = $pokemon;
-			}
-			if (stripos($pokemon['Legendary'], $legend) !== false){
+			if (stripos($pokemon['Name'], $search) !== false ||
+			stripos($id, $search) !== false ||
+			stripos($gen, $search) !== false || 
+			stripos($pokemon['Type'], $search) !== false || 
+			stripos($pokemon['Legendary'], $legend) !== false) {
 				// Add the Pokémon to the filtered array
 				$filtered_pokemon[] = $pokemon;
 			}
