@@ -41,6 +41,7 @@
 
 		$legend = "";
 		echo "Legend: " . $legend . "<br>";
+		echo "Real Legend: " . $pokemon['Legendary'] . "<br>";
         
         if ($search == "Legendary"){
             $legend = "Sí";
