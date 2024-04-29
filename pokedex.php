@@ -36,10 +36,10 @@
 		// Array to store the filtered Pokémon
 		$filtered_pokemon = array();
         
-        if ($search == "Legendary"){
+        if ($search == "Legendary" || $search == "legendary"){
             $legend = "Sí";
         }
-        else if ($search == "Not Legendary"){
+        else if ($search == "Not Legendary" || $search == "not legendary" || $search == "Not legendary"){
             $legend = "No";
         }
 		else {
