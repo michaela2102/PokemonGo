@@ -53,9 +53,9 @@
 		foreach ($pokedex_info as $pokemon) {
 
 			$id = ltrim($pokemon['PokemonID'], '0');
-			echo "ID: " . $id . "<br>";
 			$gen = "Generation " . $pokemon['Generation'];
 
+			echo "Name: " . $pokemon['Name'] . "<br>";
 			// Check if the Pokémon matches the search criteria
 			if (stripos($pokemon['Name'], $search) !== false ||
 				stripos($id, $search) !== false ||
