@@ -12,7 +12,8 @@
             margin: 0;
             padding: 0;
             font-size: 16px;
-            line-height: 1.5; /* Add line-height property to increase spacing between lines */
+            line-height: 2; /* Add line-height property to increase spacing between lines */
+            font-weight: bold; /* Make the font bold */
         }
 
         header {
