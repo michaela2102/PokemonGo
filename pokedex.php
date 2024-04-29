@@ -40,6 +40,7 @@
 		$filtered_pokemon = array();
 
 		$legend = "";
+		echo "Legend: " . $legend . "<br>";
         
         if ($search == "Legendary"){
             $legend = "Sí";
