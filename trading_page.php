@@ -93,7 +93,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-3 sidebar">
-                <h2>Tradeable Pokémon</h2>
+                <h2>Tradeable Pokémon -></h2>
                 <ul>
                     <img src="images/pika.png" alt="Pikachu Icon" width= "75" height="75">
                 </ul>
