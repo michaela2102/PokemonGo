@@ -30,6 +30,7 @@ if ($logged_in) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $username = $_POST['username'];
   $password = $_POST['password'];
+  $password = hash('sha256', $password);
   // $password = password_hash($password, PASSWORD_DEFAULT);
   $user = authenticate($pdo, $username, $password);
 
