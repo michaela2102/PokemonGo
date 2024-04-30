@@ -8,7 +8,7 @@
 		$sql = "SELECT * 
                 FROM hasPokemon 
 				JOIN pokemon ON hasPokemon.PokemonID = pokemon.PokemonID
-				JOIN player ON hasPokemon.PlayerID = player.PlayerID
+				JOIN login_info ON hasPokemon.PlayerID = login_info.PlayerID
                 WHERE AvailableToTrade = :request;";
 		
 		// Execute the SQL query using the pdo function and fetch the result
