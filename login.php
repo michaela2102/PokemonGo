@@ -14,9 +14,11 @@
 	function authenticate($pdo, $username, $password) {
 	    $sql = "SELECT username, password
 	            FROM login_info
-	            WHERE username = :username AND password = :password";
+	            WHERE username = :username ";
 
-	    $user = pdo($pdo, $sql, ['username' => $username, 'password' => $password])->fetch();
+	    $user = pdo($pdo, $sql, ['username' => $username])->fetch();
+
+      var_dump($user);
 
 	    return $user;
   	}
@@ -31,7 +33,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $username = $_POST['username'];
   $password = $_POST['password'];
   $password = hash('sha256', $password);
-  // $password = password_hash($password, PASSWORD_DEFAULT);
   $user = authenticate($pdo, $username, $password);
 
   if ($user) {
