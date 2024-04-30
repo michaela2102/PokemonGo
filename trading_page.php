@@ -95,27 +95,9 @@
             <div class="col-md-3 sidebar">
                 <h2>Tradeable Pokémon</h2>
                 <ul>
-                    <!-- Example of 10 randomly generated Pokémon from the database -->
-                    <li>Pikachu</li>
-                    <li>Charmander</li>
-                    <li>Bulbasaur</li>
-                    <li>Squirtle</li>
-                    <li>Eevee</li>
-                    <li>Magikarp</li>
-                    <li>Snorlax</li>
-                    <li>Jigglypuff</li>
-                    <li>Growlithe</li>
-                    <li>Onix</li>
+                    <img src="images/pika.png" alt="Pikachu Icon" width= "60" height="60">
                 </ul>
             </div>
-            <div class="col-md-9 content">
-				<form action="trading_page.php" method="get">
-					<input id="search" class="form-control"  type="text" name="search" placeholder="Search for a Pokémon!">
-					<input type="submit" value="Search">
-				</form>
-                <div id="search-results">
-                    <!-- Search results will be displayed here -->
-                </div>
 
 	<?php
 		for($row = 0; $row < count($pokemon_collection); $row++) {
