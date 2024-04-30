@@ -14,10 +14,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt = $pdo->prepare($sql);
     $stmt->execute($params);
 
-    $sql = "INSERT INTO `player` (`FriendCode`, `Username`, `Gender`, `Team`, `XP`, `Pokecoins`) VALUES ('358273958', :username, NULL, NULL, '0', '0')";
-    $params = ['username' => $username];
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute($params);
+    // $sql = "INSERT INTO `player` (`FriendCode`, `Username`, `Gender`, `Team`, `XP`, `Pokecoins`) VALUES ('358273958', :username, NULL, NULL, '0', '0')";
+    // $params = ['username' => $username];
+    // $stmt = $pdo->prepare($sql);
+    // $stmt->execute($params);
 
     // Redirect to a success page or login page
     header('Location: login.php');
