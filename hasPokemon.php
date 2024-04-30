@@ -7,7 +7,7 @@
 
 		// SQL query to retrieve PlayerID based on the username
 		$sql = "SELECT PlayerID
-				FROM player
+				FROM login_info
 				WHERE Username = :username;";
 		
 		// Execute the SQL query using the pdo function and fetch the result
