@@ -95,9 +95,13 @@
             <div class="col-md-3 sidebar">
                 <h2>Tradeable Pokémon</h2>
                 <ul>
-                    <img src="images/pika.png" alt="Pikachu Icon" width= "60" height="60">
+                    <img src="images/pika.png" alt="Pikachu Icon" width= "75" height="75">
                 </ul>
             </div>
+            <div class="col-md-9 content">
+                <div id="search-results">
+                    <!-- Search results will be displayed here -->
+                </div>
 
 	<?php
 		for($row = 0; $row < count($pokemon_collection); $row++) {
