@@ -19,6 +19,7 @@
 	    $user = pdo($pdo, $sql, ['username' => $username])->fetch();
 
       var_dump($user);
+    var_dump($password);
 
     if ($user['password'] == $password) {
       return $user;
