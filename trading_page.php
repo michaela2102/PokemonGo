@@ -24,12 +24,42 @@
 		// Array to store the filtered Pokémon
 		$filtered_collection = array();
 
+		if ($search == "Legendary" || $search == "legendary"){
+	        $legend = "Sí";
+	    }
+	    else if ($search == "Not Legendary" || $search == "not legendary" || $search == "Not legendary"){
+	        $legend = "No";
+	    }
+		else {
+			$legend = "fillerstring";
+		}
+
+		if ($search == "Shiny" || $search == "shiny"){
+			$shiny = "Yes";
+		}
+		else if ($search == "Not Shiny" || $search == "not shiny" || $search == "Not shiny"){
+			$shiny = "No";
+		}
+		else {
+			$shiny = "fillerstring";
+		}
+
 		// Iterate over each Pokémon in the collection
 		foreach ($pokemon_collection as $pokemon) {
+
+			$id = ltrim($pokemon['PokemonID'], '0');
+			$gen = "Generation " . $pokemon['Generation'];
+			$stars = $pokemon['NumStars'] . " Stars";
+
 			// Check if the Pokémon matches the search criteria
-			if (stripos($pokemon['Name'], $search) !== false) {
-				// Add the Pokémon to the filtered array
-				$filtered_collection[] = $pokemon;
+			if (stripos($pokemon['Name'], $search) !== false ||
+			stripos($id, $search) !== false ||
+			stripos($gen, $search) !== false ||
+			stripos($stars, $search) !== false ||
+	        stripos($pokemon['Legendary'], $legend) !== false ||
+			stripos($pokemon['IsShiny'], $shiny) !== false){
+			// Add the Pokémon to the filtered array
+			$filtered_collection[] = $pokemon;
 			}
 		}
 
@@ -57,7 +87,7 @@
             text-align: center;
         }
         h1 {
-            font-family: 'Pokemon', sans-serif;
+            font-family: gill sans, sans-serif;
             color: #FFFFFF;
         }
         .sidebar {
