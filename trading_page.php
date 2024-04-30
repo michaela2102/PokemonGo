@@ -23,6 +23,7 @@
 	function filter_pokemon($pokemon_collection, $search) {
 		// Array to store the filtered Pokémon
 		$filtered_collection = array();
+		echo "search: " . $search . "<br>";
 
 		if ($search == "Legendary" || $search == "legendary"){
 	        $legend = "Sí";
