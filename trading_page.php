@@ -20,54 +20,6 @@
 	// Retrieve info about toys from the db using provided PDO connection
 	$pokemon_collection = get_pokemon_collection($pdo, $request);
 
-	function filter_pokemon($pokemon_collection, $search) {
-		// Array to store the filtered Pokémon
-		$filtered_collection = array();
-		echo "search: " . $search . "<br>";
-
-		if ($search == "Legendary" || $search == "legendary"){
-	        $legend = "Sí";
-	    }
-	    else if ($search == "Not Legendary" || $search == "not legendary" || $search == "Not legendary"){
-	        $legend = "No";
-	    }
-		else {
-			$legend = "fillerstring";
-		}
-
-		if ($search == "Shiny" || $search == "shiny"){
-			$shiny = "Yes";
-		}
-		else if ($search == "Not Shiny" || $search == "not shiny" || $search == "Not shiny"){
-			$shiny = "No";
-		}
-		else {
-			$shiny = "fillerstring";
-		}
-
-		// Iterate over each Pokémon in the collection
-		foreach ($pokemon_collection as $pokemon) {
-
-			$id = ltrim($pokemon['PokemonID'], '0');
-			$gen = "Generation " . $pokemon['Generation'];
-			$stars = $pokemon['NumStars'] . " Stars";
-
-			// Check if the Pokémon matches the search criteria
-			if (stripos($pokemon['Name'], $search) !== false ||
-			stripos($id, $search) !== false ||
-			stripos($gen, $search) !== false ||
-			stripos($stars, $search) !== false ||
-	        stripos($pokemon['Legendary'], $legend) !== false ||
-			stripos($pokemon['IsShiny'], $shiny) !== false){
-			// Add the Pokémon to the filtered array
-			$filtered_collection[] = $pokemon;
-			}
-		}
-
-		// Return the filtered Pokémon
-		return $filtered_collection;
-	}
-
 ?> 
 
 <!DOCTYPE html>
@@ -112,14 +64,6 @@
         .pokemon img {
             height: 60px;
             margin-right: 20px;
-        }
-        .chat-button {
-            background: #B986D7;
-            color: white;
-            padding: 5px 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
         }
         .header-left {
 			float: left;
@@ -173,19 +117,8 @@
                     <!-- Search results will be displayed here -->
                 </div>
 
-				<?php
-						// Check if a search query is submitted
-		if (isset($_GET['search'])) {
-			// Get the search query from the URL parameter
-			$search = $_GET['search'];
-
-			// Filter the Pokémon based on the search query
-			$filtered_collection = filter_pokemon($pokemon_collection, $search);
-		} else {
-			// If no search query is submitted, display all Pokémon
-			$filtered_collection = $pokemon_collection;
-		}
-		for($row = 0; $row < count($filtered_collection); $row++) {
+	<?php
+		for($row = 0; $row < count($pokemon_collection); $row++) {
 			$PokemonID = $pokemon_collection[$row]['PokemonID'];
 			$PokemonName = $pokemon_collection[$row]['Name'];
 			$Trainer = $pokemon_collection[$row]['Username'];
@@ -194,7 +127,6 @@
 			$Stars = $pokemon_collection[$row]['NumStars'];
 			$Trade = $pokemon_collection[$row]['AvailableToTrade'];
 			$Shiny = $pokemon_collection[$row]['IsShiny'];
-			// $Type = $pokemon_collection[$row]['Type'];
 	?>
 
 		<div class="pokemon">
@@ -216,8 +148,6 @@
 
 				<!-- Display Shinyness of Pokémon -->
 				Shiny: <?= $Shiny ?>
-
-				<button class="chat-button">Chat</button>
 			</div>
 		</div>
 
