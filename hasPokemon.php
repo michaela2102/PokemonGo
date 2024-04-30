@@ -2,20 +2,20 @@
 	session_start();
 	require 'includes/database-connection.php';
 
-    // $username = $_SESSION['username'];
-    // function get_player_id(PDO $pdo, string $username) {
+    $username = $_SESSION['username'];
+    function get_player_id(PDO $pdo, string $username) {
 
-	// 	// SQL query to retrieve PlayerID based on the username
-	// 	$sql = "SELECT PlayerID
-	// 			FROM player
-	// 			WHERE Username = :username;";
+		// SQL query to retrieve PlayerID based on the username
+		$sql = "SELECT PlayerID
+				FROM player
+				WHERE Username = :username;";
 		
-	// 	// Execute the SQL query using the pdo function and fetch the result
-	// 	$PlayerID = pdo($pdo, $sql, ['username' => $username])->fetchAll();
+		// Execute the SQL query using the pdo function and fetch the result
+		$PlayerID = pdo($pdo, $sql, ['username' => $username])->fetchAll();
 
-	// 	// Return the Pokémon collection (associative array)
-	// 	return $PlayerID;
-	// }
+		// Return the Pokémon collection (associative array)
+		return $PlayerID;
+	}
 
     function get_pokemon_collection(PDO $pdo, string $PlayerID) {
 
@@ -34,8 +34,8 @@
 		return $pokemon_collection;
 	}
 
-    //$PlayerID = get_player_id($pdo, $username);
-    $pokemon_collection = get_pokemon_collection($pdo, 3);
+    $PlayerID = get_player_id($pdo, $username);
+    $pokemon_collection = get_pokemon_collection($pdo, strval($PlayerID[0]["PlayerID"]));
 
 	// Function to filter the Pokémon based on user input
 	function filter_pokemon($pokemon_collection, $search) {
